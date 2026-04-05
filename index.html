@@ -318,29 +318,31 @@
     margin-bottom: var(--sp-xs);
   }
 
-  /* ── PHOTO PLACEHOLDER ─────────────────────────────────────── */
+  /* ── PORTRAIT ───────────────────────────────────────────────── */
   .photo-box {
-    border: var(--r-thin) solid var(--rule);
+    border: var(--r-thick) double var(--rule);
     padding: var(--sp-sm);
     margin: var(--sp-md) 0;
     text-align: center;
     background: var(--paper2);
+    box-shadow: 2px 2px 0 var(--rule);
   }
   .photo-inner {
     width: 100%;
-    aspect-ratio: 3/2;
-    background: repeating-linear-gradient(
-      45deg, var(--paper2), var(--paper2) 4px, var(--paper) 4px, var(--paper) 8px
-    );
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 0.72rem;
-    color: var(--sepia);
-    letter-spacing: 0.06em;
-    border: 1px dashed var(--sepia);
+    overflow: hidden;
+    line-height: 0;
+    border: 1px solid var(--rule);
+    aspect-ratio: 4/5;
+  }
+  .photo-inner img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: top;
+    /* Vintage newspaper press effect */
+    filter: grayscale(100%) contrast(1.15) brightness(0.92) sepia(30%);
+    mix-blend-mode: multiply;
   }
   .photo-caption {
     font-style: italic;
@@ -623,8 +625,8 @@
       </div>
 
       <div class="photo-box">
-        <div class="photo-inner">[ Portrait of the Subject ]</div>
-        <div class="photo-caption">Miss Heni Bhungalia, Product Manager,<br>photographed at her desk in Seattle, 2026.</div>
+        <div class="photo-inner"><img src="portrait.jpg" alt="Heni Bhungalia, AI Product Manager" /></div>
+        <div class="photo-caption">Miss Heni Bhungalia, AI Product Manager &amp; Technologist,<br>pictured in formal portrait. Seattle, Wash., 2026.</div>
       </div>
     </div>
 
@@ -792,68 +794,147 @@
   </div>
 </div>
 
+
 <script>
 (function() {
+
+  /* ── KNOWLEDGE BASE ─────────────────────────────────────────────
+     Each entry: keys[] for matching, score = number of keys matched,
+     highest score wins. Ties go to the entry listed first.
+  ─────────────────────────────────────────────────────────────────*/
   var KB = [
-    { keys: ["who is","about heni","introduce","background","yourself","summary","overview"],
-      ans: "Heni is an AI Product Manager with 5+ years shipping real products, not just roadmaps. She built DreamCRM from zero to a live AI-powered CRM with Google CASA Tier 2 security clearance, led a peer-reviewed research platform downloaded 1,241+ times, and contributed product strategy that helped ZeroGPU secure pre-seed funding.\n\nShe sits at the intersection of technical depth and product instinct. Comfortable reviewing API docs in the morning and presenting to stakeholders in the afternoon. Based in Greater Seattle, open to remote." },
-    { keys: ["dreamcrm","dream crm","crm","gmail sync","linkedin sync","retention","casa"],
-      ans: "DreamCRM is Heni's most complete 0-to-1 story. She took it from a blank canvas to a production AI CRM, shipping Gmail Sync, LinkedIn Sync, AI-suggested action items, and AI email drafting.\n\nThe numbers: 57-60% month-1 retention versus an industry average of 20-30%. Onboarding completion went from 17% to 50% after she ran PostHog funnel analysis and iterated on the flow. She also cleared Google CASA Tier 2 security certification, something most early-stage teams skip entirely." },
-    { keys: ["unirac","solar","bom","installer","distributor"],
-      ans: "Heni is currently leading the end-to-end redesign of Unirac Solar's installer portal in 90 days (March-May 2026), using AI-assisted design tools.\n\nThe core problem: a 22-step, 3-section BOM generation workflow with redundant data entry that forced users to restart from scratch when changing parts. The new design collapses this into a single 8-input dashboard with a live editable BOM, cutting interactions by 55 percent.\n\nShe is leading a cross-functional team across multiple time zones from user data analysis through to development." },
-    { keys: ["zerogpu","gpu","edge","developer portal","funding","pre-seed","seed"],
-      ans: "ZeroGPU is an edge AI infrastructure platform. Heni defined the Developer and Edge Operator portal strategy, validated the API architecture via Postman, and built out the product roadmap.\n\nThe outcome: ZeroGPU secured pre-seed and seed funding. That outcome is a strong signal the product direction was credible and well-executed." },
-    { keys: ["northeastern","research","paper","drs","publication","platform","italy"],
-      ans: "At Northeastern, Heni led a US-Italy collaborative research project, building a live public platform with teams in Boston and Milan. She managed sprint planning for 6 people across 3 major releases, all shipped on time and defect-free.\n\nShe also published at DRS 2024 (Design Research Society). That paper has 1,241+ downloads in its first year. 1,241 downloads in year one is the kind of signal that is hard to fake." },
-    { keys: ["peapod","stop shop","ahold","grocery","search","ecommerce","co-op"],
-      ans: "At Peapod Digital Labs, part of Ahold Delhaize, Heni rebuilt the search and discovery infrastructure for Stop and Shop. The result was a 30% increase in order conversion and a 25% engagement boost on Weekly Ads and Digital Coupons." },
-    { keys: ["invica","mobile app","100k","downloads"],
+
+    { keys: ["who is","about heni","introduce","tell me about","background","yourself","summary","overview","her story","her profile","who are","describe heni","describe her"],
+      ans: "Heni is an AI Product Manager with 5+ years shipping real products, not just roadmaps. She built DreamCRM from zero to a live AI-powered CRM with Google CASA Tier 2 security clearance, led a peer-reviewed research platform downloaded 1,241+ times, and contributed product strategy that helped ZeroGPU secure pre-seed and seed funding.\n\nShe sits at the intersection of technical depth and product instinct. Comfortable reviewing API docs in the morning and presenting to stakeholders in the afternoon. Based in Greater Seattle, fully open to remote." },
+
+    { keys: ["dreamcrm","dream crm","crm","gmail sync","linkedin sync","retention","casa","ai crm","email drafting","action items","onboarding"],
+      ans: "DreamCRM is Heni's most complete ground-up build. She took it from a blank canvas to a production AI CRM, shipping Gmail Sync, LinkedIn Sync, AI-suggested action items, and AI email drafting.\n\nThe numbers: 57–60% month-1 retention versus a 20–30% industry average. Onboarding completion went from 17% to 50% after she ran PostHog funnel analysis and iterated on the flow. She also cleared Google CASA Tier 2 security certification, something most early-stage teams skip entirely." },
+
+    { keys: ["unirac","solar","bom","installer","distributor","portal","redesign","workflow","22 step","8 input","55 percent","55%"],
+      ans: "Heni is leading the end-to-end redesign of Unirac Solar's installer portal (March–May 2026), using AI-assisted design tools.\n\nThe core problem: a 22-step BOM generation workflow with redundant data entry that forced users to restart when changing parts. The new design collapses this into a single 8-input dashboard with a live editable BOM, cutting interactions by 55%.\n\nShe is leading a cross-functional team across multiple time zones from user research through to development handoff." },
+
+    { keys: ["zerogpu","zero gpu","edge ai","developer portal","edge operator","api architecture","postman","infrastructure","funding","pre-seed","seed","gpu platform"],
+      ans: "ZeroGPU is an edge AI infrastructure platform. Heni defined the Developer and Edge Operator portal strategy, validated the API architecture via Postman, and built out the product roadmap.\n\nThe outcome: ZeroGPU secured pre-seed and seed funding. That result is a strong signal the product direction was credible and well-executed." },
+
+    { keys: ["northeastern","research","paper","drs","publication","platform","italy","boston","milan","design research","1241","1,241","academic","sprint planning"],
+      ans: "At Northeastern, Heni led a US–Italy collaborative research project, building a live public platform with teams in Boston and Milan. She managed sprint planning for 6 people across 3 major releases, all shipped on time and defect-free.\n\nShe also published at DRS 2024 (Design Research Society). That paper has 1,241+ downloads in its first year. The kind of signal that is hard to fake." },
+
+    { keys: ["peapod","stop shop","ahold","grocery","search","ecommerce","co-op","order conversion","weekly ads","digital coupons","discovery","peapod digital"],
+      ans: "At Peapod Digital Labs (part of Ahold Delhaize), Heni rebuilt the search and discovery infrastructure for Stop & Shop. The result: a 30% increase in order conversion and a 25% engagement boost on Weekly Ads and Digital Coupons." },
+
+    { keys: ["invica","mobile app","100k","100,000","downloads","reviews","4.5","star rating","consumer app","rice","release cycle"],
       ans: "At Invica Infotech, Heni owned the full product roadmap for a consumer mobile app that reached 100K+ downloads, a 4.5-star rating, and 4,790+ user reviews. She used RICE prioritization and reduced release cycles by 20%." },
-    { keys: ["looking for","open to","job","role","position","hire","opportunity","seeking","want"],
-      ans: "Heni is looking for a Senior PM or AI Product Manager role at a company that is serious about building with AI, not just marketing it. Greater Seattle or remote.\n\nShe is authorized to work in the US with no sponsorship required. Clean, simple hire." },
-    { keys: ["work auth","authorization","visa","sponsor","ead","eligible","legal","sponsorship"],
-      ans: "Heni is fully authorized to work in the US. No sponsorship needed, no immigration timeline to manage. She can start on a standard notice period from any offer." },
-    { keys: ["metrics","numbers","impact","results","outcomes","achievements","kpi"],
-      ans: "The numbers worth knowing:\n\n57-60% month-1 retention on DreamCRM vs 20-30% industry average\nOnboarding improved from 17% to 50%\nUnirac Solar BOM workflow reduced by 55% (22 steps to 8 inputs)\n1,241+ research paper downloads in year one\n100K+ mobile app downloads, 4.5 stars, 4,790+ reviews\n40% delivery cadence improvement at AI20 Labs\nZeroGPU roadmap contributed to pre-seed funding\n30% order conversion lift at Peapod\n\nThese are pulled from PostHog, app stores, and public academic records." },
-    { keys: ["skills","technical","tools","stack","posthog","figma","sql","python"],
-      ans: "Technical: LLM product development, API architecture review, SQL, Python, PostHog, Amplitude, Mixpanel, Figma. She has run OAuth integrations up to CASA Tier 2 and validated API contracts via Postman.\n\nProduct: 0-to-1 builds, B2B SaaS roadmapping, OKRs, A/B testing, stakeholder management across engineering, design, and exec teams." },
-    { keys: ["education","degree","masters","ms","computer science","university"],
-      ans: "M.S. in Information Systems from Northeastern University, Seattle. B.E. in Computer Science from Gujarat Technological University. Also pursuing IBM AI Product Manager and Google Advanced Data Analytics certifications." },
-    { keys: ["salary","compensation","pay","rate","expect","budget","range"],
-      ans: "Heni is open to discussing compensation based on the role and company. Please reach out directly at heni.bhungalia12@gmail.com or via LinkedIn." },
-    { keys: ["contact","email","phone","linkedin","reach","talk","call","interview","schedule","meet"],
-      ans: "Ready to connect?\n\nEmail: heni.bhungalia12@gmail.com\nPhone: (206) 604-5153\nLinkedIn: linkedin.com/in/heni-bhungalia\n\nShe responds within 24 hours. If you are a recruiter or hiring manager, leading with the role and company name gets the fastest reply." },
-    { keys: ["ai20","startup","current","company","employer"],
+
+    { keys: ["perlucem","financial","banking","fintech","dashboard","poc","mvp","poc to mvp","financial intelligence","ubpr","fred","6 weeks","8 weeks"],
+      ans: "Heni took Perlucem.ai's Financial Intelligence Dashboard from POC to MVP in 6–8 weeks with 3 banking stakeholders in weekly review cycles. She integrated UBPR and FRED financial datasets into production dashboards. Fast, high-stakes, and delivered." },
+
+    { keys: ["ai20","ai20 labs","startup","current","company","employer","studio","concurrent","multiple products"],
       ans: "AI20 Labs is an AI product studio where Heni works full-time. It is not a household name. It is the kind of place where you build things rather than manage processes.\n\nShe is simultaneously running DreamCRM, ZeroGPU, and the Unirac Solar engagement. The volume and variety is the point." },
-    { keys: ["highlight","career highlight","key highlight","standout","best work","proudest","top achievement","interesting","impressive","tell me more","what else","projects","summarize","overview of work","what has she done","portfolio"],
-      ans: "A few moments that define the arc:\n\nBuilt DreamCRM from zero to a production AI CRM, 57-60% month-1 retention, real users, real data. Led a US-Italy research collaboration that produced a paper with 1,241+ downloads in year one. Contributed the product roadmap that helped ZeroGPU close pre-seed and seed funding. Currently leading Unirac Solar's installer portal redesign, collapsed a 22-step BOM workflow into 8 inputs, cutting interactions by 55 percent.\n\nFive years, multiple industries, same pattern: ship real things that show up in the numbers." },
-    { keys: ["too junior","not enough experience","junior","entry level","years of experience","senior","level","overqualified","underqualified"],
-      ans: "Totally fair to ask. Heni does not have a FAANG badge or a decade inside a Fortune 500. What she has is 5+ years of 0-to-1 product ownership across AI, fintech, enterprise solar, and e-commerce, with results you can check.\n\nShe has directly managed and mentored teams of 4 to 10 people, including training interns, running sprint ceremonies, and owning delivery across concurrent products.\n\nIf the role needs someone who has managed a 30 to 50 person org inside a large company, she may not be the right fit. If it needs someone who can own a product end-to-end, move fast, and figure things out, that is exactly her groove." },
-    { keys: ["build the bot","built this","how did you make","who built","voiceflow","claude","cowork","this chatbot","this bot","who made"],
-      ans: "Ha, funny you ask. Four years ago, Heni built a chatbot using Voiceflow. No code, drag-and-drop flows, the whole thing.\n\nThis one is a bit different. It runs on Claude as the underlying model and was built through Cowork, Anthropic's multi-agent desktop tool. So the AI answering your questions right now was essentially built by the person you're asking about.\n\nWhich either says a lot about her resourcefulness, or just confirms the tools have gotten really good. Probably both." },
+
+    { keys: ["metrics","numbers","impact","results","outcomes","achievements","kpi","data","stats","figures","accomplishments"],
+      ans: "The numbers worth knowing:\n\n• 57–60% month-1 retention on DreamCRM vs 20–30% industry average\n• Onboarding improved from 17% to 50%\n• Unirac Solar BOM workflow cut by 55% (22 steps → 8 inputs)\n• 1,241+ research paper downloads in year one\n• 100K+ mobile app downloads, 4.5 stars, 4,790+ reviews\n• 40% delivery cadence improvement at AI20 Labs\n• ZeroGPU roadmap contributed to pre-seed + seed funding\n• 30% order conversion lift at Peapod\n\nAll pulled from PostHog, app stores, and public academic records." },
+
+    { keys: ["skills","technical","tools","stack","posthog","figma","sql","python","amplitude","mixpanel","oauth","expertise","proficient","tech stack","technology"],
+      ans: "Technical: LLM product development, API architecture review, SQL, Python, PostHog, Amplitude, Mixpanel, Figma. She has run OAuth integrations up to CASA Tier 2 and validated API contracts via Postman.\n\nProduct: ground-up product builds, B2B SaaS roadmapping, OKRs, A/B testing, user research, stakeholder management across engineering, design, and exec teams.\n\nMethodologies: Agile, Scrum, RICE prioritization, OKR frameworks, sprint planning." },
+
+    { keys: ["education","degree","masters","ms","computer science","university","northeastern","gujarat","northeastern university","information systems","ibm","google certification","certification","certified"],
+      ans: "M.S. in Information Systems from Northeastern University, Seattle. B.E. in Computer Science from Gujarat Technological University.\n\nAlso pursuing IBM AI Product Manager and Google Advanced Data Analytics certifications." },
+
+    { keys: ["leadership","manage","managed","team","managing people","mentored","mentoring","intern","team lead","lead a team","direct report","people management","org","coach"],
+      ans: "Heni has directly managed and mentored teams of 4 to 10 people, including training interns, running sprint ceremonies, and owning delivery across concurrent products.\n\nAt Northeastern she managed a 6-person cross-timezone team across 3 platform releases. At AI20 Labs she is coordinating across engineering, design, and external client stakeholders simultaneously. Leadership through doing, not just directing." },
+
+    { keys: ["agile","scrum","sprint","kanban","jira","ceremony","standup","retrospective","planning","methodology","process"],
+      ans: "Heni runs full Agile and Scrum workflows: sprint planning, standups, retrospectives, backlog grooming, and release cycles. She used these at Northeastern for a 6-person team across 3 defect-free releases and at AI20 Labs to achieve a 40% improvement in delivery cadence.\n\nShe adapts the process to the team rather than following Agile by the book." },
+
+    { keys: ["remote","hybrid","in person","in-person","onsite","location","relocate","relocation","where","seattle","washington","timezone"],
+      ans: "Heni is based in Greater Seattle and is open to remote, hybrid, or in-person roles in the Greater Seattle area. She has successfully led distributed teams across US–Italy time zones, so remote collaboration is not new territory for her." },
+
+    { keys: ["available","availability","start","start date","notice","when can","immediately","timeline","how soon"],
+      ans: "Heni can start on a standard notice period from any offer. If you have a specific timeline in mind, reach out directly at heni.bhungalia12@gmail.com and she can discuss." },
+
+    { keys: ["work auth","authorization","visa","sponsor","ead","eligible","legal","sponsorship","citizen","green card","work permit","authorized"],
+      ans: "Heni is fully authorized to work in the US. No sponsorship needed, no immigration timeline to manage. Clean, simple hire." },
+
+    { keys: ["salary","compensation","pay","rate","expect","budget","range","package","ctc","total comp","tc"],
+      ans: "Heni is open to discussing compensation based on the role, company stage, and scope. Reach out directly at heni.bhungalia12@gmail.com or via LinkedIn to start that conversation." },
+
+    { keys: ["contact","email","phone","linkedin","reach","talk","call","interview","schedule","meet","connect","get in touch","how do i","how to reach","message"],
+      ans: "Ready to connect?\n\nEmail: heni.bhungalia12@gmail.com\nPhone: (206) 604-5153\nLinkedIn: linkedin.com/in/heni-bhungalia\n\nShe responds within 24 hours. Leading with the role and company name gets the fastest reply." },
+
+    { keys: ["looking for","open to","job","role","position","hire","opportunity","seeking","want","next role","ideal role","what kind of role","what type","what she wants"],
+      ans: "Heni is looking for a Senior PM or AI Product Manager role at a company that is serious about building with AI, not just marketing it. Greater Seattle or remote.\n\nEnvironments where she thrives: early-stage or growth-stage companies, building new products from scratch, technically complex problems, and teams that move fast and measure everything." },
+
+    { keys: ["strength","best at","good at","strong suit","superpower","what she brings","value","unique","differentiate","stand out","sets her apart","advantage","strengths"],
+      ans: "Three things that set Heni apart:\n\n1. Technical depth without losing the business thread. She can review API docs and then walk into a board-level meeting.\n2. Full product ownership from scratch. She does not just write PRDs, she ships: DreamCRM, ZeroGPU portal, Perlucem dashboard, Invica app.\n3. Results you can audit. Every metric she quotes comes from PostHog, app stores, or public academic records. Not estimated, not rounded up." },
+
+    { keys: ["why pm","why product","how did she get","career path","career change","pivoted","background in","started in","got into product","become a pm","become a product manager"],
+      ans: "Heni started with a Computer Science foundation and moved into product management because she wanted to be the person deciding what to build, not just building it. The technical background stuck. It is why she can hold her own in architecture reviews and write specs that engineering actually trusts.\n\nHer path: software engineering roots → product ownership in mobile → AI product work across CRMs, financial tools, and enterprise B2B. Consistent thread: use data to decide, ship fast, measure honestly." },
+
+    { keys: ["startup","enterprise","prefer","environment","culture","company size","small company","big company","stage","growth stage","series","early stage"],
+      ans: "Heni is most at home in early-stage to growth-stage environments where the product is still being defined. She has built products from scratch, navigated ambiguity without a playbook, and shipped without a large supporting cast.\n\nThat said, she has also worked inside enterprise B2B contexts (Unirac Solar, Peapod/Ahold Delhaize) and knows how to manage stakeholders at that scale. She is comfortable in both; she is best in fast-moving ones." },
+
+    { keys: ["weakness","challenge","improve","area for growth","not good at","limitation","gap","honest","candid"],
+      ans: "Heni would say her default is to go deep before going wide. She wants to fully understand a problem before proposing a solution. In very fast-moving contexts, that can slow her down initially.\n\nThe upside: she rarely ships something that turns out to be solving the wrong problem." },
+
+    { keys: ["collaboration","cross functional","cross-functional","work with","engineering","design","stakeholders","align","alignment","communicate","communication","partner"],
+      ans: "Heni leads cross-functional teams as a matter of course: engineering, design, data, and exec stakeholders simultaneously. At Northeastern she coordinated across Boston and Milan. At AI20 Labs she aligns across product, engineering, and external enterprise clients on three concurrent products.\n\nHer approach: clear specs, defined owners, async-first communication, and retrospectives that actually improve the next sprint." },
+
+    { keys: ["ai experience","llm","gpt","machine learning","ml","artificial intelligence","ai features","ai product","ai tools","language model","ai native","ai-native","generative"],
+      ans: "AI product development is Heni's primary lane. She shipped 4 production AI features on DreamCRM: Gmail Sync, LinkedIn Sync, AI-suggested action items, and AI email drafting. She is scoping AI-powered location-based installation insights for the Unirac Solar redesign.\n\nShe validated ZeroGPU's edge AI infrastructure product strategy and is pursuing IBM AI Product Manager certification. She does not just use AI tools. She defines what they should do and ships them." },
+
+    { keys: ["highlight","key highlight","standout","best work","proudest","top achievement","interesting","impressive","what else","projects","summarize","what has she done","portfolio","career highlight","tell me more","notable"],
+      ans: "A few moments that define the arc:\n\n• DreamCRM: zero to production AI CRM, 57–60% month-1 retention, real users, real data.\n• Northeastern: US–Italy research collaboration, 1,241+ paper downloads in year one.\n• ZeroGPU: product roadmap that contributed to pre-seed and seed funding.\n• Unirac Solar: 22-step BOM workflow collapsed to 8 inputs, 55% interaction reduction.\n• Peapod: 30% order conversion lift by rebuilding search infrastructure.\n• Invica: 100K+ app downloads, 4.5 stars.\n\nFive years, multiple industries, same pattern: ship real things that show up in the numbers." },
+
+    { keys: ["too junior","not enough experience","junior","entry level","years of experience","senior","level","overqualified","underqualified","qualify","enough experience","5 years","how many years"],
+      ans: "Heni has 5+ years of full product ownership across AI, fintech, enterprise solar, and e-commerce, with results you can verify.\n\nShe has directly managed teams of 4–10, run sprint ceremonies, owned delivery across concurrent products, and shipped against hard deadlines.\n\nIf the role needs someone who has managed a 50-person org inside a Fortune 500, she may not be the right fit. If it needs someone who can own a product end-to-end, move fast, and figure things out. That is exactly her groove." },
+
+    { keys: ["references","referees","reference","who can vouch","recommendations","linkedin recommendations","rec","vouch for"],
+      ans: "References are available on request. Heni also has LinkedIn recommendations from colleagues and collaborators. Reach out at heni.bhungalia12@gmail.com to request specifics." },
+
+    { keys: ["build the bot","built this","how did you make","who built","voiceflow","claude","cowork","this chatbot","this bot","who made","what powers","technology behind","how does this work","how does this bot"],
+      ans: "Four years ago Heni built a chatbot using Voiceflow: no code, drag-and-drop flows.\n\nThis one is different. It runs on Claude as the underlying model and was built through Cowork, Anthropic's multi-agent desktop tool. So the AI answering your questions was essentially built by the person you are asking about.\n\nWhich either says a lot about her resourcefulness, or just confirms the tools have gotten really good. Probably both." },
   ];
 
-  var FALLBACK = "I am best at covering Heni's projects, experience, and what she is looking for next.\n\nTry asking about DreamCRM, her key metrics, work authorization, or how to get in touch. Or reach her directly at heni.bhungalia12@gmail.com.";
+  var FALLBACK = "I can answer questions about Heni's experience, projects, skills, work authorization, availability, or how to get in touch.\n\nTry asking:\n• \"Tell me about DreamCRM\"\n• \"What are her key metrics?\"\n• \"Is she open to remote roles?\"\n• \"How do I contact her?\"\n\nOr reach her directly at heni.bhungalia12@gmail.com.";
 
-  var hireAnswers = {"0to1":"DreamCRM is the clearest example. Heni took it from a blank canvas to a production AI CRM with 4 shipped features: Gmail Sync, LinkedIn Sync, AI action items, and AI email drafting. Month-1 retention landed at 57-60% versus the 20-30% industry average. She also cleared Google CASA Tier 2 security certification along the way.\n\nShe also took Perlucem.ai from POC to MVP in 6-8 weeks, and defined the ZeroGPU portal strategy that contributed to their pre-seed funding.\n\n0-to-1 in ambiguous, fast-moving environments is where she operates best.","retention":"On DreamCRM, Heni improved onboarding completion from 17% to 50% through PostHog funnel analysis and A/B testing. Month-1 retention stabilized at 57-60% across recent cohorts, well above the 20-30% industry average.\n\nAt Peapod Digital Labs she drove a 30% increase in order conversion by rebuilding search and discovery infrastructure. At Invica she grew a mobile app to 100K+ downloads with a 4.5-star rating through continuous customer discovery.\n\nHer approach: instrument first, find the drop-off, test fast, ship the fix.","enterprise":"Heni is currently leading the UX redesign of Unirac Solar's installer and distributor portal, analyzing product data and aligning with enterprise stakeholders to reduce BOM generation friction. Live enterprise B2B work.\n\nShe also took Perlucem.ai's Financial Intelligence Dashboard from POC to MVP in 6-8 weeks with 3 banking stakeholders in weekly review cycles throughout.","execution":"A few signals: 4 concurrent products managed simultaneously at AI20 Labs, Perlucem.ai from POC to MVP in 6-8 weeks, 3 platform releases at Northeastern all on time and defect-free, and a 40% improvement in delivery cadence through Agile and OKR alignment.\n\nZeroGPU is another data point: the roadmap she defined contributed directly to securing pre-seed and seed funding.","technical":"Heni holds a B.E. in Computer Science and an M.S. in Information Systems. She has validated API contracts via Postman, cleared Google CASA Tier 2 OAuth security certification, instrumented PostHog funnels, and integrated UBPR and FRED financial datasets into production dashboards.\n\nShe can read the code, push back on architecture decisions, and write specs that reflect what is actually feasible.","ai":"AI product development is Heni's primary lane. She shipped 4 production AI features on DreamCRM: Gmail Sync, LinkedIn Sync, AI-suggested action items, and AI email drafting. She is scoping AI-powered location-based installation insights for the Unirac Solar redesign.\n\nShe is also pursuing IBM AI Product Manager and Google Advanced Data Analytics certifications, and published at DRS 2024 with 1,241+ downloads in year one."};
+  var hireAnswers = {
+    "0to1": "DreamCRM is the clearest example. Heni took it from a blank canvas to a production AI CRM with 4 shipped features: Gmail Sync, LinkedIn Sync, AI action items, and AI email drafting. Month-1 retention landed at 57–60% versus the 20–30% industry average. She also cleared Google CASA Tier 2 security certification along the way.\n\nShe also took Perlucem.ai from POC to MVP in 6–8 weeks and defined the ZeroGPU portal strategy that contributed to pre-seed funding.\n\nBuilding new products in ambiguous, fast-moving environments is where she operates best.",
+    "retention": "On DreamCRM, Heni improved onboarding completion from 17% to 50% through PostHog funnel analysis and A/B testing. Month-1 retention stabilized at 57–60%, well above the 20–30% industry average.\n\nAt Peapod Digital Labs she drove a 30% increase in order conversion by rebuilding search and discovery infrastructure. At Invica she grew a mobile app to 100K+ downloads with a 4.5-star rating through continuous customer discovery.\n\nHer approach: instrument first, find the drop-off, test fast, ship the fix.",
+    "enterprise": "Heni is currently leading the UX redesign of Unirac Solar's installer and distributor portal, analyzing product data and aligning with enterprise stakeholders to reduce BOM generation friction. Live enterprise B2B work.\n\nShe also took Perlucem.ai's Financial Intelligence Dashboard from POC to MVP in 6–8 weeks with 3 banking stakeholders in weekly review cycles throughout.",
+    "execution": "A few signals: 4 concurrent products managed simultaneously at AI20 Labs, Perlucem.ai from POC to MVP in 6–8 weeks, 3 platform releases at Northeastern all on time and defect-free, and a 40% improvement in delivery cadence through Agile and OKR alignment.\n\nZeroGPU is another data point: the roadmap she defined contributed directly to securing pre-seed and seed funding.",
+    "technical": "Heni holds a B.E. in Computer Science and an M.S. in Information Systems. She has validated API contracts via Postman, cleared Google CASA Tier 2 OAuth security certification, instrumented PostHog funnels, and integrated UBPR and FRED financial datasets into production dashboards.\n\nShe can read the code, push back on architecture decisions, and write specs that reflect what is actually feasible.",
+    "ai": "AI product development is Heni's primary lane. She shipped 4 production AI features on DreamCRM and is scoping AI-powered insights for the Unirac Solar redesign.\n\nShe defined ZeroGPU's edge AI infrastructure product strategy and is pursuing IBM AI Product Manager and Google Advanced Data Analytics certifications. Published at DRS 2024 with 1,241+ downloads in year one."
+  };
 
+  /* ── SCORE-BASED MATCHING ───────────────────────────────────────
+     Count how many keywords from each KB entry appear in the query.
+     Return the answer with the highest score. Beats first-match.
+  ─────────────────────────────────────────────────────────────────*/
   function findAnswer(q) {
     var lower = q.toLowerCase();
+    var bestScore = 0;
+    var bestAns = null;
+
     for (var i = 0; i < KB.length; i++) {
+      var score = 0;
       for (var j = 0; j < KB[i].keys.length; j++) {
-        if (lower.indexOf(KB[i].keys[j]) !== -1) return KB[i].ans;
+        if (lower.indexOf(KB[i].keys[j]) !== -1) score++;
+      }
+      if (score > bestScore) {
+        bestScore = score;
+        bestAns = KB[i].ans;
       }
     }
-    return FALLBACK;
+    return bestAns || FALLBACK;
   }
 
+  /* ── UI WIRING ──────────────────────────────────────────────────*/
   var launcher = document.getElementById("chat-launcher");
   var panel    = document.getElementById("chat-panel");
   var closeBtn = document.getElementById("chat-close-btn");
   var input    = document.getElementById("chat-input");
   var sendBtn  = document.getElementById("chat-send");
   var messages = document.getElementById("chat-messages");
-  var chipsEl  = document.getElementById("chat-chips");
 
   function addMessage(text, role) {
     var div = document.createElement("div");
@@ -900,7 +981,7 @@
       opts.className = "hire-options";
 
       var options = [
-        ["0to1",       "Building a product from 0 to 1"],
+        ["0to1",       "Building a new product from scratch"],
         ["retention",  "Improving retention or conversion"],
         ["enterprise", "Enterprise B2B / stakeholder-heavy work"],
         ["execution",  "Fast execution and delivery"],
@@ -944,4 +1025,11 @@
     if (opened) setTimeout(function() { input.focus(); }, 300);
   });
 
-  closeBtn.addEventListener("click", function() { panel.classList.remov
+  closeBtn.addEventListener("click", function() { panel.classList.remove("open"); });
+  sendBtn.addEventListener("click", function() { sendMessage(input.value); });
+  input.addEventListener("keydown", function(e) { if (e.key === "Enter") sendMessage(input.value); });
+
+})();
+</script>
+</body>
+</html>
