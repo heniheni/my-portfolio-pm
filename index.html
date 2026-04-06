@@ -4,6 +4,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Heni Bhungalia | AI Product Manager Portfolio</title>
+<meta name="description" content="Heni Bhungalia is an AI Product Manager based in Greater Seattle with 5+ years shipping products across AI, enterprise B2B, and e-commerce. Open to senior PM roles. No sponsorship required." />
+<meta property="og:title" content="Heni Bhungalia | AI Product Manager" />
+<meta property="og:description" content="From pre-seed funding to enterprise portals. AI PM with 5+ years shipping real products. 57% retention on DreamCRM, ZeroGPU funded, Unirac Solar redesigned in 90 days." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="portrait.jpg" />
+<meta property="og:url" content="https://heniheni.github.io/my-portfolio-pm/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Heni Bhungalia | AI Product Manager" />
+<meta name="twitter:description" content="From pre-seed funding to enterprise portals. AI PM with 5+ years shipping real products." />
+<meta name="twitter:image" content="portrait.jpg" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,7 +28,7 @@
     --rule:   #5c4013;
     --accent: #8b1a1a;
 
-    /* Spacing scale — every margin/padding uses one of these */
+    /* Spacing scale, every margin/padding uses one of these */
     --sp-xs:  4px;
     --sp-sm:  8px;
     --sp-md:  16px;
@@ -146,7 +156,7 @@
   /* ── PAGE WRAPPER ──────────────────────────────────────────── */
   .page { max-width: 1100px; margin: 0 auto; padding: 0 var(--sp-lg) var(--sp-xl); }
 
-  /* ── RULES — consistent vertical rhythm ───────────────────── */
+  /* ── RULES, consistent vertical rhythm ───────────────────── */
   /* All rules use the same vertical margin: sp-md top and bottom */
   .rule-thick  { border: none; border-top: var(--r-thick) solid var(--rule); margin: var(--sp-md) 0; }
   .rule-thin   { border: none; border-top: var(--r-thin) solid var(--rule);  margin: var(--sp-sm) 0; }
@@ -353,11 +363,15 @@
 
   /* ── ADVERTISEMENT ─────────────────────────────────────────── */
   .advertisement {
-    border: 3px double var(--rule);
+    border: var(--r-mid) solid var(--rule);
     padding: var(--sp-md);
     margin: var(--sp-md) 0;
     text-align: center;
     background: var(--paper2);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .ad-small { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sepia); }
   .ad-headline {
@@ -401,6 +415,136 @@
     color: var(--sepia);
   }
   .footer a { color: var(--sepia); text-decoration: underline; }
+
+  /* ── FLOATING PORTRAIT ─────────────────────────────────────── */
+  .photo-box-float {
+    float: right;
+    width: 28%;
+    margin: 0 0 var(--sp-md) var(--sp-lg);
+    border: var(--r-thick) double var(--rule);
+    padding: var(--sp-sm);
+    background: var(--paper2);
+    box-shadow: 2px 2px 0 var(--rule);
+  }
+  .photo-box-float .photo-inner {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    border: 1px solid var(--rule);
+    aspect-ratio: 4/5;
+  }
+  .photo-box-float .photo-inner img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: top;
+    filter: grayscale(100%) contrast(1.15) brightness(0.92) sepia(30%);
+    mix-blend-mode: multiply;
+  }
+  .photo-box-float .photo-caption {
+    font-style: italic;
+    font-size: 0.7rem;
+    color: var(--sepia);
+    margin-top: var(--sp-xs);
+    text-align: center;
+  }
+  .article-clearfix::after { content: ""; display: table; clear: both; }
+  @media (max-width: 480px) {
+    .photo-box-float { float: none; width: 100%; margin: var(--sp-md) 0; }
+  }
+
+  /* ── IN BRIEF BOX ──────────────────────────────────────────── */
+  .in-brief {
+    border: var(--r-thin) solid var(--rule);
+    padding: var(--sp-md);
+    background: var(--paper2);
+    margin: var(--sp-md) 0;
+  }
+  .in-brief-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sepia);
+    text-align: center;
+    border-bottom: var(--r-thin) solid var(--rule);
+    padding-bottom: var(--sp-xs);
+    margin-bottom: var(--sp-sm);
+  }
+  .in-brief ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .in-brief ul li {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    padding: var(--sp-xs) 0;
+    border-bottom: var(--r-hair) solid var(--paper2);
+    color: var(--ink2);
+  }
+  .in-brief ul li::before {
+    content: '◆';
+    color: var(--sepia);
+    font-size: 0.55rem;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ── TESTIMONIALS ──────────────────────────────────────────── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-lg);
+    margin: var(--sp-lg) 0;
+  }
+  @media (max-width: 480px) { .testimonials-grid { grid-template-columns: 1fr; } }
+  .testimonial-card {
+    border-top: var(--r-thick) solid var(--rule);
+    border-bottom: var(--r-thin) solid var(--rule);
+    padding: var(--sp-md) var(--sp-md) var(--sp-sm);
+    background: var(--paper2);
+    position: relative;
+  }
+  .testimonial-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--sepia);
+    opacity: 0.35;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+  }
+  .testimonial-body {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--ink2);
+    margin-top: var(--sp-md);
+    padding-left: var(--sp-sm);
+  }
+  .testimonial-attribution {
+    margin-top: var(--sp-sm);
+    padding-top: var(--sp-sm);
+    border-top: var(--r-hair) solid var(--sepia);
+  }
+  .testimonial-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+  .testimonial-title {
+    font-size: 0.72rem;
+    color: var(--sepia);
+    font-style: italic;
+    margin-top: 2px;
+  }
 
   /* ── CHAT WIDGET ───────────────────────────────────────────── */
   #chat-launcher {
@@ -541,7 +685,7 @@
     SEATTLE PRODUCT MANAGER ACHIEVES 57% RETENTION ON AI-POWERED CRM &nbsp;&#9670;&nbsp;
     THINKING MACHINE PORTFOLIO OUTWITS CONVENTIONAL RESUME &nbsp;&#9670;&nbsp;
     LOCAL WOMAN SHIPS FOUR AI FEATURES WHILE MOST MANAGERS DRAFT ROADMAPS &nbsp;&#9670;&nbsp;
-    GOOGLE AWARDS RARE CASA TIER 2 SECURITY CLEARANCE &nbsp;&#9670;&nbsp;
+    GOOGLE CASA TIER 2 CLEARED ON DREAMCRM &nbsp;&#9670;&nbsp;
     ZEROGPU SECURES PRE-SEED FUNDING; PRODUCT STRATEGY CITED &nbsp;&#9670;&nbsp;
     1,241 SCHOLARS DOWNLOAD RESEARCH PAPER IN FIRST YEAR &nbsp;&#9670;&nbsp;
     UNIRAC SOLAR PORTAL REDESIGNED IN 90 DAYS; 22-STEP WORKFLOW COLLAPSED TO 8 INPUTS &nbsp;&#9670;&nbsp;
@@ -571,9 +715,10 @@
     "In an Era of Thinking Machines, One Must Not Only Think, One Must Ship."
   </div>
   <div class="masthead-meta">
-    <span>Heni Bhungalia · AI &amp; Technical Product Manager</span>
-    <span>Authorized to Work in the United States &middot; No Sponsorship Required</span>
-    <span><a href="mailto:heni.bhungalia12@gmail.com">heni.bhungalia12@gmail.com</a> &middot; (206) 604-5153</span>
+    <span>AI &amp; Technical Product Manager</span>
+    <span>No Sponsorship Required</span>
+    <span><a href="mailto:heni.bhungalia12@gmail.com" style="color:var(--sepia);">heni.bhungalia12@gmail.com</a> &middot; (206) 604-5153</span>
+    <span><a href="Heni_Bhungalia_Resume.pdf" download style="color:var(--sepia); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; font-size:0.75rem;">&#9670; Download Resume &#9670;</a></span>
   </div>
 </header>
 
@@ -590,18 +735,24 @@
 
     <!-- Main story -->
     <div class="col">
-      <div class="headline-xl">Local Product Manager Harnesses the Power of Thinking Machines -- Ships Four AI Features in Single Season</div>
+      <div class="headline-xl">From Pre-Seed Funding to Enterprise Portals: The Product Manager Who Ships at Every Stage</div>
       <div class="byline">By Our Technology Correspondent &nbsp;&#9670;&nbsp; Seattle, Washington</div>
       <hr class="rule-thin">
-      <p class="drop-cap"><span class="dateline">Seattle, WA. </span> In what observers are calling a remarkable exhibition of modern product management, Miss Heni Bhungalia, a practitioner of the artificial intelligence arts, has distinguished herself by shipping not one, not two, but four production AI features upon the DreamCRM platform, all within a single engagement at AI20 Labs.</p>
-      
-      <p>Of note: she secured Google CASA Tier 2 certification for OAuth integration, a step most early-stage teams skip, but one that signals rigour where rigour matters.</p>
-      <div class="pull-quote">"The onboarding completion rate improved from 17 percent to 50 percent through rigorous funnel analysis and iterative experimentation, precisely the kind of disciplined enquiry one expects from a practitioner of the highest order."</div>
-      <p>She simultaneously contributed the ZeroGPU product strategy that secured pre-seed and seed funding, and is presently leading a 90-day end-to-end redesign of the Unirac Solar installer portal, collapsing a 22-step BOM workflow into a single 8-input dashboard, cutting interactions by 55 percent.</p>
+      <p class="drop-cap"><span class="dateline">Seattle, WA. </span> In what observers are calling a remarkable exhibition of modern product management, Heni Bhungalia, a practitioner of the artificial intelligence arts, has distinguished herself by shipping <strong>four production AI features</strong> upon the DreamCRM platform, all within a single engagement at AI20 Labs.</p>
+
+      <p>Of note: she partnered with engineering to clear <strong>Google CASA Tier 2 certification</strong> for OAuth integration, driving prioritisation and timelines on a step most early-stage teams skip.</p>
+      <div class="pull-quote">"Heni doesn&rsquo;t just contribute, she elevates the entire team and product direction with her ownership, customer obsession, and execution excellence." Siva Dosapati, Founder &amp; CEO, AI20 Labs</div>
+      <div class="photo-box-float">
+        <div class="photo-inner"><img src="portrait.jpg" alt="Heni Bhungalia, AI Product Manager" /></div>
+        <div class="photo-caption">Heni Bhungalia · Seattle, 2026.</div>
+      </div>
+      <p>She simultaneously contributed the ZeroGPU product strategy that secured <strong>pre-seed and seed funding</strong>, and is presently leading a 90-day redesign of the Unirac Solar installer portal, collapsing a <strong>22-step workflow into a single 8-input dashboard</strong>, cutting interactions by <strong>55 percent</strong>.</p>
+      <p>Holding a B.E. in Computer Science and an M.S. in Information Systems from Northeastern University, Seattle, she brings the technical fluency to work through architecture reviews in the morning and lead stakeholder presentations in the afternoon. A practitioner equally at home with API contracts and quarterly OKRs.</p>
+      <div class="article-clearfix"></div>
     </div>
 
     <!-- Right sidebar -->
-    <div class="col">
+    <div class="col" style="display:flex; flex-direction:column;">
       <div class="stats-box" id="numbers">
         <div class="stats-box-title">&#9670; Vital Statistics &#9670;</div>
         <div class="stat-row"><span>Month-1 Retention, DreamCRM</span><span class="stat-number">57&ndash;60%</span></div>
@@ -624,10 +775,7 @@
         <div style="margin-top:8px; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase;">Authorised to work in the United States &middot; No Sponsorship Required</div>
       </div>
 
-      <div class="photo-box">
-        <div class="photo-inner"><img src="portrait.jpg" alt="Heni Bhungalia, AI Product Manager" /></div>
-        <div class="photo-caption">Miss Heni Bhungalia, AI Product Manager &amp; Technologist,<br>pictured in formal portrait. Seattle, Wash., 2026.</div>
-      </div>
+
     </div>
 
   </div><!-- /cols-2-1 -->
@@ -641,8 +789,9 @@
     <div class="col">
       <div class="headline-md">DreamCRM: An AI-Powered CRM Built From Zero</div>
       <div class="byline">AI20 Labs &nbsp;&#9670;&nbsp; 2026</div>
-      <p>Miss Bhungalia undertook the construction of an entirely new AI-powered customer relationship management system, commencing from a state of absolute vacancy. She shipped Gmail and LinkedIn synchronisation, an AI action item engine, and an email drafting assistant. The concern achieved 57 to 60 percent first-month retention, a figure this correspondent has not encountered at comparable early-stage enterprises.</p>
-      <p>Google CASA Tier 2 certified for OAuth. Onboarding completion: 17% to 50% via PostHog funnel analysis and A/B testing.</p>
+      <p>Heni undertook the construction of an entirely new AI-powered customer relationship management system, commencing from a state of absolute vacancy. She shipped Gmail and LinkedIn synchronisation, an AI action item engine, and an email drafting assistant. The concern achieved 57 to 60 percent first-month retention, a figure this correspondent has not encountered at comparable early-stage enterprises.</p>
+      <p>Collaborated with engineering to clear Google CASA Tier 2 for OAuth. Onboarding completion: 17% to 50% via PostHog funnel analysis and A/B testing.</p>
+      <div class="pull-quote" style="font-size:0.88rem;">"57 to 60 percent retention, where the industry posts 20. Real users. Real data."</div>
     </div>
     <div class="col">
       <div class="headline-md">ZeroGPU: Portal Strategy That Secured Funding</div>
@@ -654,6 +803,7 @@
       <div class="headline-md">Unirac Solar: 22-Step Workflow Collapsed to 8 Inputs in 90 Days</div>
       <div class="byline">AI20 Labs Client &nbsp;&#9670;&nbsp; March &ndash; May 2026</div>
       <p>End-to-end UX redesign of the installer and distributor portal using AI-assisted design tools. Reduced a 22-step, 3-section BOM generation workflow into a single 8-input dashboard with a live editable BOM, cutting interactions by 55 percent. Led cross-functional team across multiple time zones from user data analysis through to development.</p>
+      <div class="pull-quote" style="font-size:0.88rem;">"22 steps to 8 inputs. 55 percent fewer interactions. Delivered in 90 days."</div>
     </div>
   </div>
 
@@ -666,11 +816,13 @@
       <div class="headline-md">Northeastern University: Research Platform &amp; Published Scholar</div>
       <div class="byline">Product &amp; Research Lead &nbsp;&#9670;&nbsp; June 2023 &ndash; May 2025</div>
       <p>Led end-to-end development of CAMD's public research platform through a US-Italy international collaboration. Sole designer and developer; presented design options to research leads, cleared university accessibility and compliance standards. Published at DRS 2024, achieving 1,241+ downloads in year one.</p>
+      <div class="pull-quote" style="font-size:0.88rem;">"1,241 downloads in year one. The kind of signal that is hard to fake."</div>
     </div>
     <div class="col">
       <div class="headline-md">Peapod Digital Labs: Search &amp; Discovery, Rebuilt for Conversion</div>
       <div class="byline">Technical Product Developer &nbsp;&#9670;&nbsp; Jan &ndash; Jun 2022</div>
       <p>Rebuilt Stop &amp; Shop search and discovery infrastructure. Order conversion up 30%. Weekly Ads and Digital Coupons optimised for a 25% engagement lift. All within a 6-month co-op.</p>
+      <div class="pull-quote" style="font-size:0.88rem;">"Order conversion up 30%. In 6 months."</div>
     </div>
   </div>
 
@@ -710,7 +862,7 @@
       <hr class="rule-thin">
       <div class="timeline-item">
         <div class="timeline-year">2025&ndash;<br>Present</div>
-        <div class="timeline-text"><strong>AI20 Labs -- AI Product Manager, Seattle</strong><br>Led DreamCRM (57&ndash;60% retention, 17%&rarr;50% onboarding), ZeroGPU (pre-seed funding secured), Unirac Solar redesign (22-step BOM &rarr; 8 inputs, 55% reduction). 4 AI features shipped. CASA Tier 2 certified.</div>
+        <div class="timeline-text"><strong>AI20 Labs -- AI Product Manager, Seattle</strong><br>Led DreamCRM (57&ndash;60% retention, 17%&rarr;50% onboarding), ZeroGPU (pre-seed funding secured), Unirac Solar redesign (22-step BOM &rarr; 8 inputs, 55% reduction). 4 AI features shipped. CASA Tier 2 cleared with engineering.</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2023&ndash;<br>2025</div>
@@ -738,6 +890,35 @@
 
   <hr class="rule-double">
 
+  <!-- TESTIMONIALS -->
+  <div class="section-label">&#9670; Dispatches From The Field &#9670;</div>
+  <div class="headline-md" style="text-align:center; margin-bottom: var(--sp-xs);">Correspondence From Notable Associates</div>
+  <div class="byline" style="text-align:center; margin-bottom: var(--sp-md);">Unsolicited endorsements, reproduced verbatim.</div>
+
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <div class="testimonial-mark">&ldquo;</div>
+      <div class="testimonial-body">Heni is a passionate, driven, and versatile product leader. She excels at building customer-led product vision, collaborating closely with engineering, and executing across the full product lifecycle, from discovery and strategy to launch and iteration.<br><br>At AI20 Labs, Heni has become a cornerstone in driving incubation initiatives across multiple client engagements. She proactively identifies team bottlenecks around velocity and alignment, engages cross-functionally to understand perspectives, and fosters a culture where individuals operate at their best. Her leadership has enabled us to partner with 3+ startup clients, launch 2 products already used by diverse customer segments, and define compelling product strategies that accelerate product-market fit.<br><br>Heni doesn&rsquo;t just contribute, she elevates the entire team and product direction with her ownership, customer obsession, and execution excellence.</div>
+      <div class="testimonial-attribution">
+        <div class="testimonial-name">Siva Dosapati</div>
+        <div class="testimonial-title">Founder &amp; CEO, AI20 Labs, Direct Manager</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-mark">&ldquo;</div>
+      <div class="testimonial-body">Heni joined mid-project and quickly oriented herself, bringing clarity and direction to a large and distributed body of work, and adroitly navigating the University bureaucracy to secure internal approvals. She&rsquo;s able to troubleshoot and resolve challenges with minimal oversight, while also demonstrating good judgment about when to seek input. She brings strong instincts for project management and could be trusted both to do the work and to coordinate others effectively.<br><br>Alongside her design and technical contributions, Heni was also a thoughtful collaborator on the academic writing process for our peer-reviewed paper to the Design Research Society. Her comments were constructive, her contributions well-argued, and her writing clear and precise.<br><br>Heni approaches design problems with a rare and excellent balance of thoughtfulness and efficiency. Her contributions to the project were critical, not only in shaping the final product but in making the process feel organized, collegial, and purposeful throughout.</div>
+      <div class="testimonial-attribution">
+        <div class="testimonial-name">Michael Arnold Mages</div>
+        <div class="testimonial-title">Associate Professor &amp; Co-Director, Health &amp; Wellness Design Lab, Northeastern University</div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="rule-double">
+
   <!-- CONTACT -->
   <div id="contact" style="text-align:center; padding: 20px 0 10px;">
     <div class="section-label">&#9670; To Correspond With The Subject &#9670;</div>
@@ -745,10 +926,13 @@
     <p style="font-style:italic; font-size:0.95rem; margin: 6px 0 14px; color: var(--sepia);">
       "One does not wait for opportunity to knock; one leaves the door demonstrably ajar."
     </p>
+    <div style="margin-bottom:16px;">
+      <a href="Heni_Bhungalia_Resume.pdf" download style="display:inline-block; font-family:'Playfair Display',serif; font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper); background:var(--ink); border:2px solid var(--rule); padding:8px 24px; text-decoration:none;">&#9670; Download Resume &#9670;</a>
+    </div>
     <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap; font-size:0.88rem;">
       <div><strong>Electronic Post</strong><br><a href="mailto:heni.bhungalia12@gmail.com">heni.bhungalia12@gmail.com</a></div>
       <div><strong>Telephonic</strong><br>(206) 604-5153</div>
-      <div><strong>The LinkedIn Register</strong><br>linkedin.com/in/heni-bhungalia</div>
+      <div><strong>The LinkedIn Register</strong><br><a href="https://www.linkedin.com/in/heni-bhungalia" target="_blank">linkedin.com/in/heni-bhungalia</a></div>
     </div>
   </div>
 
@@ -898,11 +1082,11 @@
   var FALLBACK = "I can answer questions about Heni's experience, projects, skills, work authorization, availability, or how to get in touch.\n\nTry asking:\n• \"Tell me about DreamCRM\"\n• \"What are her key metrics?\"\n• \"Is she open to remote roles?\"\n• \"How do I contact her?\"\n\nOr reach her directly at heni.bhungalia12@gmail.com.";
 
   var hireAnswers = {
-    "0to1": "DreamCRM is the clearest example. Heni took it from a blank canvas to a production AI CRM with 4 shipped features: Gmail Sync, LinkedIn Sync, AI action items, and AI email drafting. Month-1 retention landed at 57–60% versus the 20–30% industry average. She also cleared Google CASA Tier 2 security certification along the way.\n\nShe also took Perlucem.ai from POC to MVP in 6–8 weeks and defined the ZeroGPU portal strategy that contributed to pre-seed funding.\n\nBuilding new products in ambiguous, fast-moving environments is where she operates best.",
+    "0to1": "DreamCRM is the clearest example. Heni took it from a blank canvas to a production AI CRM with 4 shipped features: Gmail Sync, LinkedIn Sync, AI action items, and AI email drafting. Month-1 retention landed at 57–60% versus the 20–30% industry average. She also drove the team to clear Google CASA Tier 2 security certification, managing prioritisation and timeline with engineering.\n\nShe also took Perlucem.ai from POC to MVP in 6–8 weeks and defined the ZeroGPU portal strategy that contributed to pre-seed funding.\n\nBuilding new products in ambiguous, fast-moving environments is where she operates best.",
     "retention": "On DreamCRM, Heni improved onboarding completion from 17% to 50% through PostHog funnel analysis and A/B testing. Month-1 retention stabilized at 57–60%, well above the 20–30% industry average.\n\nAt Peapod Digital Labs she drove a 30% increase in order conversion by rebuilding search and discovery infrastructure. At Invica she grew a mobile app to 100K+ downloads with a 4.5-star rating through continuous customer discovery.\n\nHer approach: instrument first, find the drop-off, test fast, ship the fix.",
     "enterprise": "Heni is currently leading the UX redesign of Unirac Solar's installer and distributor portal, analyzing product data and aligning with enterprise stakeholders to reduce BOM generation friction. Live enterprise B2B work.\n\nShe also took Perlucem.ai's Financial Intelligence Dashboard from POC to MVP in 6–8 weeks with 3 banking stakeholders in weekly review cycles throughout.",
     "execution": "A few signals: 4 concurrent products managed simultaneously at AI20 Labs, Perlucem.ai from POC to MVP in 6–8 weeks, 3 platform releases at Northeastern all on time and defect-free, and a 40% improvement in delivery cadence through Agile and OKR alignment.\n\nZeroGPU is another data point: the roadmap she defined contributed directly to securing pre-seed and seed funding.",
-    "technical": "Heni holds a B.E. in Computer Science and an M.S. in Information Systems. She has validated API contracts via Postman, cleared Google CASA Tier 2 OAuth security certification, instrumented PostHog funnels, and integrated UBPR and FRED financial datasets into production dashboards.\n\nShe can read the code, push back on architecture decisions, and write specs that reflect what is actually feasible.",
+    "technical": "Heni holds a B.E. in Computer Science and an M.S. in Information Systems. She has validated API contracts via Postman, partnered with engineering to clear Google CASA Tier 2 OAuth certification, instrumented PostHog funnels, and integrated UBPR and FRED financial datasets into production dashboards.\n\nShe can read the code, push back on architecture decisions, and write specs that reflect what is actually feasible.",
     "ai": "AI product development is Heni's primary lane. She shipped 4 production AI features on DreamCRM and is scoping AI-powered insights for the Unirac Solar redesign.\n\nShe defined ZeroGPU's edge AI infrastructure product strategy and is pursuing IBM AI Product Manager and Google Advanced Data Analytics certifications. Published at DRS 2024 with 1,241+ downloads in year one."
   };
 
@@ -969,7 +1153,7 @@
 
       var intro = document.createElement("p");
       intro.style.cssText = "margin:0 0 6px; font-style:italic;";
-      intro.textContent = "Good day. I am the special correspondent assigned to Miss Bhungalia's portfolio.";
+      intro.textContent = "Good day. I am the special correspondent assigned to Heni Bhungalia's portfolio.";
       div.appendChild(intro);
 
       var q = document.createElement("p");
