@@ -519,6 +519,35 @@
     top: 6px;
     left: 10px;
   }
+  .testimonial-highlight {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.45;
+    margin-bottom: var(--sp-sm);
+    padding-left: var(--sp-lg);
+  }
+  .testimonial-more {
+    display: none;
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--ink2);
+    line-height: 1.6;
+    padding-left: var(--sp-lg);
+    margin-bottom: var(--sp-sm);
+  }
+  .testimonial-more.open { display: block; }
+  .read-more-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-size: 0.72rem;
+    font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--sepia); padding: 0 0 0 var(--sp-lg);
+    text-decoration: underline; margin-bottom: var(--sp-sm);
+  }
+  .read-more-btn:hover { color: var(--accent); }
   .testimonial-body {
     font-family: 'Inter', sans-serif;
     font-style: italic;
@@ -690,18 +719,17 @@
     ZEROGPU SECURES PRE-SEED FUNDING; PRODUCT STRATEGY CITED &nbsp;&#9670;&nbsp;
     1,241 SCHOLARS DOWNLOAD RESEARCH PAPER IN FIRST YEAR &nbsp;&#9670;&nbsp;
     UNIRAC SOLAR PORTAL REDESIGNED IN 90 DAYS; 22-STEP WORKFLOW COLLAPSED TO 8 INPUTS &nbsp;&#9670;&nbsp;
-    IN AN ERA OF ARTIFICIAL INTELLIGENCE, THIS PORTFOLIO CHOSE LETTERPRESS &nbsp;&#9670;&nbsp;
+    ONBOARDING COMPLETION LIFTED FROM 17% TO 50% THROUGH POSTHOG FUNNEL ANALYSIS AND A/B TESTING &nbsp;&#9670;&nbsp;
   </span>
 </div>
 
 <!-- NAV -->
 <nav class="nav-strip">
   <a href="#work">Work</a>
-  <a href="#numbers">By The Numbers</a>
-  <a href="#projects">Dispatches</a>
-  <a href="#skills">Capabilities</a>
-  <a href="#chronicle">Chronicle</a>
-  <a href="#contact">Correspond</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#chronicle">Timeline</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <!-- MASTHEAD -->
@@ -793,19 +821,16 @@
       <div class="byline">AI20 Labs &nbsp;&#9670;&nbsp; 2026</div>
       <p>Heni undertook the construction of an entirely new AI-powered customer relationship management system, commencing from a state of absolute vacancy. She shipped Gmail and LinkedIn synchronisation, an AI action item engine, and an email drafting assistant. The concern achieved 57 to 60 percent first-month retention, a figure this correspondent has not encountered at comparable early-stage enterprises.</p>
       <p>Collaborated with engineering to clear Google CASA Tier 2 for OAuth. Onboarding completion: 17% to 50% via PostHog funnel analysis and A/B testing.</p>
-      <div class="pull-quote" style="font-size:0.88rem;">"57 to 60 percent retention, where the industry posts 20. Real users. Real data."</div>
     </div>
     <div class="col">
       <div class="headline-md">ZeroGPU: Portal Strategy That Secured Funding</div>
       <div class="byline">AI20 Labs &nbsp;&#9670;&nbsp; 2025&ndash;2026</div>
       <p>Defined Developer and Edge Operator portal strategy for ZeroGPU, an edge AI infrastructure platform. Validated API architecture via Postman. Authored product roadmap that directly contributed to ZeroGPU securing pre-seed and seed funding.</p>
-      <div class="pull-quote" style="font-size:0.88rem;">"The roadmap was the deciding factor."</div>
     </div>
     <div class="col">
       <div class="headline-md">Unirac Solar: 22-Step Workflow Collapsed to 8 Inputs in 90 Days</div>
       <div class="byline">AI20 Labs Client &nbsp;&#9670;&nbsp; March &ndash; May 2026</div>
       <p>End-to-end UX redesign of the installer and distributor portal using AI-assisted design tools. Reduced a 22-step, 3-section BOM generation workflow into a single 8-input dashboard with a live editable BOM, cutting interactions by 55 percent. Led cross-functional team across multiple time zones from user data analysis through to development.</p>
-      <div class="pull-quote" style="font-size:0.88rem;">"22 steps to 8 inputs. 55 percent fewer interactions. Delivered in 90 days."</div>
     </div>
   </div>
 
@@ -818,13 +843,11 @@
       <div class="headline-md">Northeastern University: Research Platform &amp; Published Scholar</div>
       <div class="byline">Product &amp; Research Lead &nbsp;&#9670;&nbsp; June 2023 &ndash; May 2025</div>
       <p>Led end-to-end development of CAMD's public research platform through a US-Italy international collaboration. Sole designer and developer; presented design options to research leads, cleared university accessibility and compliance standards. Published at DRS 2024, achieving 1,241+ downloads in year one.</p>
-      <div class="pull-quote" style="font-size:0.88rem;">"1,241 downloads in year one. The kind of signal that is hard to fake."</div>
     </div>
     <div class="col">
       <div class="headline-md">Peapod Digital Labs: Search &amp; Discovery, Rebuilt for Conversion</div>
       <div class="byline">Technical Product Developer &nbsp;&#9670;&nbsp; Jan &ndash; Jun 2022</div>
       <p>Rebuilt Stop &amp; Shop search and discovery infrastructure. Order conversion up 30%. Weekly Ads and Digital Coupons optimised for a 25% engagement lift. All within a 6-month co-op.</p>
-      <div class="pull-quote" style="font-size:0.88rem;">"Order conversion up 30%. In 6 months."</div>
     </div>
   </div>
 
@@ -901,16 +924,20 @@
 
     <div class="testimonial-card">
       <div class="testimonial-mark">&ldquo;</div>
-      <div class="testimonial-body">Heni is a passionate, driven, and versatile product leader. She excels at building customer-led product vision, collaborating closely with engineering, and executing across the full product lifecycle, from discovery and strategy to launch and iteration.<br><br>At AI20 Labs, Heni has become a cornerstone in driving incubation initiatives across multiple client engagements. She proactively identifies team bottlenecks around velocity and alignment, engages cross-functionally to understand perspectives, and fosters a culture where individuals operate at their best. Her leadership has enabled us to partner with 3+ startup clients, launch 2 products already used by diverse customer segments, and define compelling product strategies that accelerate product-market fit.<br><br>Heni doesn&rsquo;t just contribute, she elevates the entire team and product direction with her ownership, customer obsession, and execution excellence.</div>
+      <div class="testimonial-highlight">Heni doesn&rsquo;t just contribute &mdash; she elevates the entire team and product direction with her ownership, customer obsession, and execution excellence.</div>
+      <button class="read-more-btn" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? 'Read less &uarr;' : 'Read full endorsement &darr;';">Read full endorsement &darr;</button>
+      <div class="testimonial-more">Heni is a passionate, driven, and versatile product leader. She excels at building customer-led product vision, collaborating closely with engineering, and executing across the full product lifecycle, from discovery and strategy to launch and iteration.<br><br>At AI20 Labs, Heni has become a cornerstone in driving incubation initiatives across multiple client engagements. She proactively identifies team bottlenecks around velocity and alignment, engages cross-functionally to understand perspectives, and fosters a culture where individuals operate at their best. Her leadership has enabled us to partner with 3+ startup clients, launch 2 products already used by diverse customer segments, and define compelling product strategies that accelerate product-market fit.</div>
       <div class="testimonial-attribution">
         <div class="testimonial-name">Siva Dosapati</div>
-        <div class="testimonial-title">Founder &amp; CEO, AI20 Labs, Direct Manager</div>
+        <div class="testimonial-title">Founder &amp; CEO, AI20 Labs &middot; Direct Manager</div>
       </div>
     </div>
 
     <div class="testimonial-card">
       <div class="testimonial-mark">&ldquo;</div>
-      <div class="testimonial-body">Heni joined mid-project and quickly oriented herself, bringing clarity and direction to a large and distributed body of work, and adroitly navigating the University bureaucracy to secure internal approvals. She&rsquo;s able to troubleshoot and resolve challenges with minimal oversight, while also demonstrating good judgment about when to seek input. She brings strong instincts for project management and could be trusted both to do the work and to coordinate others effectively.<br><br>Alongside her design and technical contributions, Heni was also a thoughtful collaborator on the academic writing process for our peer-reviewed paper to the Design Research Society. Her comments were constructive, her contributions well-argued, and her writing clear and precise.<br><br>Heni approaches design problems with a rare and excellent balance of thoughtfulness and efficiency. Her contributions to the project were critical, not only in shaping the final product but in making the process feel organized, collegial, and purposeful throughout.</div>
+      <div class="testimonial-highlight">Heni approaches design problems with a rare and excellent balance of thoughtfulness and efficiency. Her contributions were critical &mdash; not only in shaping the final product but in making the process feel organized, collegial, and purposeful throughout.</div>
+      <button class="read-more-btn" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? 'Read less &uarr;' : 'Read full endorsement &darr;';">Read full endorsement &darr;</button>
+      <div class="testimonial-more">Heni joined mid-project and quickly oriented herself, bringing clarity and direction to a large and distributed body of work, and adroitly navigating the University bureaucracy to secure internal approvals. She&rsquo;s able to troubleshoot and resolve challenges with minimal oversight, while also demonstrating good judgment about when to seek input.<br><br>Alongside her design and technical contributions, Heni was also a thoughtful collaborator on the academic writing process for our peer-reviewed paper to the Design Research Society. Her comments were constructive, her contributions well-argued, and her writing clear and precise.</div>
       <div class="testimonial-attribution">
         <div class="testimonial-name">Michael Arnold Mages</div>
         <div class="testimonial-title">Associate Professor &amp; Co-Director, Health &amp; Wellness Design Lab, Northeastern University</div>
@@ -926,7 +953,7 @@
     <div class="section-label">&#9670; To Correspond With The Subject &#9670;</div>
     <div class="headline-lg" style="margin: 8px 0;">Inquiries of a Professional Nature Are Welcomed</div>
     <p style="font-style:italic; font-size:0.95rem; margin: 6px 0 14px; color: var(--sepia);">
-      "One does not wait for opportunity to knock; one leaves the door demonstrably ajar."
+      Build something worth coming back to.
     </p>
     <div style="margin-bottom:16px;">
       <a href="Heni_Bhungalia_Resume.pdf" download style="display:inline-block; font-family:'Playfair Display',serif; font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper); background:var(--ink); border:2px solid var(--rule); padding:8px 24px; text-decoration:none;">&#9670; Download Resume &#9670;</a>
