@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heni Bhungalia | AI Product Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cover:   #141414;
+  --cover2:  #1c1c1c;
+  --page:    #ffffff;
+  --page-bg: #F9F2E6;
+  --ink:     #1a1a1a;
+  --mid:     #555555;
+  --muted:   #888888;
+  --light:   #c0c0c0;
+  --line:    #e4e4e4;
+  --gold:    #b5873e;
+  --gold-lt: #f0e4ca;
+  --blue:    #1e3a5f;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  background: var(--page-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+}
+
+/* ── SCENE ── */
+.scene {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* ── BOOK SHELL ── */
+.book {
+  display: flex;
+  width: 1020px;
+  height: 660px;
+  position: relative;
+  border-radius: 3px 6px 6px 3px;
+  box-shadow:
+    -8px 0 18px rgba(0,0,0,0.35),
+    0 10px 40px rgba(0,0,0,0.25),
+    0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* ── LEFT COVER ── */
+.cover {
+  width: 300px;
+  min-width: 300px;
+  background: var(--cover);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 32px 36px 36px;
+  position: relative;
+  border-radius: 3px 0 0 3px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* subtle texture overlay */
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.012) 2px,
+    rgba(255,255,255,0.012) 4px
+  );
+  pointer-events: none;
+}
+
+/* spine shadow */
+.cover::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(90deg, #0c0c0c 0%, #181818 50%, #0e0e0e 100%);
+}
+
+.cover-top { }
+
+.cover-logo {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px auto;
+  object-fit: contain;
+  filter: invert(1);
+}
+
+.cover-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.55rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+
+.cover-rule {
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+  margin: 16px 0;
+}
+
+.cover-role {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  line-height: 1.7;
+}
+
+.cover-tagline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.42);
+  line-height: 1.55;
+  margin-top: 20px;
+}
+
+.cover-mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-monogram {
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(181,135,62,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(181,135,62,0.7);
+  letter-spacing: 0.05em;
+}
+
+.cover-bottom { }
+
+.cover-meta {
+  font-size: 0.6rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.28);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.cover-meta a { color: rgba(255,255,255,0.38); text-decoration: none; }
+
+/* ── RIGHT: PAGES + TABS ── */
+.pages-area {
+  flex: 1;
+  position: relative;
+  background: var(--page);
+  border-radius: 0 6px 6px 0;
+  overflow: hidden;
+}
+
+/* ── PAGE TABS ── */
+.tabs {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+  border-left: 1px solid var(--line);
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #fafaf8;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.18s;
+  position: relative;
+  user-select: none;
+}
+
+.tab:last-child { border-bottom: none; }
+
+.tab-text {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: 0.57rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--light);
+  transition: color 0.18s;
+}
+
+.tab.active {
+  background: var(--page);
+  cursor: default;
+}
+
+.tab.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gold);
+}
+
+.tab.active .tab-text { color: var(--ink); }
+
+.tab:not(.active):hover { background: #f0ede8; }
+.tab:not(.active):hover .tab-text { color: var(--mid); }
+
+/* ── PAGE VIEWPORT ── */
+.pages-wrap {
+  position: absolute;
+  inset: 0;
+  right: 50px;
+  overflow: hidden;
+  /* Perspective right on this container — close enough for strong 3D depth */
+  perspective: 900px;
+  perspective-origin: 50% 50%;
+}
+
+/* ── THE FLIPPER — single reusable element that does the 180° page turn ── */
+#flipper {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  z-index: 20;
+  pointer-events: none;
+  display: none;
+}
+
+/* Front face: white page surface (what you see as the page folds away) */
+#flip-front {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  backface-visibility: hidden;
+  /* right-edge shadow: shows the page has depth */
+  box-shadow: inset -6px 0 18px rgba(0,0,0,0.07);
+}
+
+/* Back face: the blank back of the paper revealed mid-flip */
+#flip-back {
+  position: absolute;
+  inset: 0;
+  background: #ede9e1;   /* slightly warm off-white — paper back */
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  box-shadow: inset 6px 0 20px rgba(0,0,0,0.12);
+}
+
+/* Spine crease — thin shadow at the pivot line, visible during flip */
+#flip-crease {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background: linear-gradient(to right, rgba(0,0,0,0.13), transparent);
+  z-index: 25;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Destination-page shadow — fades in as old page lifts, then away */
+#flip-shadow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.22) 0%,
+    rgba(0,0,0,0.08) 30%,
+    transparent 65%
+  );
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* ── INDIVIDUAL PAGES — no 3D transforms; only opacity + z-index ── */
+.page {
+  position: absolute;
+  inset: 0;
+  background: var(--page);
+  padding: 44px 42px 36px 44px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.page.active {
+  opacity: 1;
+  pointer-events: all;
+  z-index: 5;
+}
+
+/* Left binding line */
+.page::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 24px;
+  bottom: 24px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--line) 15%, var(--line) 85%, transparent);
+}
+
+/* ── PAGE ELEMENTS ── */
+
+.page-head {
+  margin-bottom: 20px;
+}
+
+.page-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.page-sub {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 5px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 18px 0;
+}
+
+/* ── ABOUT ── */
+.about-body {
+  font-size: 0.87rem;
+  line-height: 1.72;
+  color: var(--mid);
+  margin-bottom: 22px;
+}
+
+.about-body strong { color: var(--ink); font-weight: 600; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--line);
+  margin-bottom: 22px;
+}
+
+.stat {
+  padding: 16px 10px;
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+
+.stat:last-child { border-right: none; }
+
+.stat-n {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+  display: block;
+}
+
+.stat-l {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+  display: block;
+}
+
+.pullquote {
+  border-left: 3px solid var(--gold);
+  padding: 4px 0 4px 16px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--mid);
+  line-height: 1.55;
+}
+
+.pullquote cite {
+  display: block;
+  font-style: normal;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-top: 6px;
+  letter-spacing: 0.03em;
+}
+
+/* ── PROJECT CARDS ── */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card {
+  display: flex;
+  gap: 18px;
+  border: 1px solid var(--line);
+  padding: 16px 18px;
+  transition: border-color 0.15s;
+}
+
+.card:hover { border-color: var(--gold); }
+
+.card-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: var(--line);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 26px;
+  margin-top: 2px;
+}
+
+.card-body { flex: 1; min-width: 0; }
+
+.card-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 1px;
+  line-height: 1.3;
+}
+
+.card-org {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 7px;
+}
+
+.card-desc {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--mid);
+  margin-bottom: 9px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--mid);
+  background: #f5f5f3;
+  border: 1px solid var(--line);
+  padding: 2px 7px;
+}
+
+/* ── ACADEMIC ── */
+.edu-section { margin-bottom: 24px; }
+
+.section-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.edu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.edu-row:last-child { border-bottom: none; }
+
+.edu-deg {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.edu-school {
+  font-size: 0.73rem;
+  color: var(--mid);
+  margin-top: 1px;
+}
+
+.edu-yr {
+  font-size: 0.65rem;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.certs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-top: 2px;
+}
+
+.cert {
+  border: 1px solid var(--line);
+  padding: 9px 12px;
+  background: #fafaf8;
+}
+
+.cert-issuer {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 3px;
+}
+
+.cert-name {
+  font-size: 0.73rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+/* ── CONTACT ── */
+.contact-intro {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--mid);
+  line-height: 1.45;
+  margin-bottom: 26px;
+}
+
+.contact-rows {
+  border-top: 1px solid var(--line);
+  margin-bottom: 28px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  gap: 0;
+}
+
+.c-icon {
+  width: 30px;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  color: var(--gold);
+}
+
+.c-label {
+  width: 76px;
+  flex-shrink: 0;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.c-val {
+  font-size: 0.84rem;
+  color: var(--ink);
+}
+
+.c-val a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.15s;
+}
+
+.c-val a:hover { border-color: var(--gold); }
+
+.resume-dl {
+  display: inline-block;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  text-decoration: none;
+  transition: background 0.18s;
+  margin-bottom: 20px;
+}
+
+.resume-dl:hover { background: var(--gold); color: var(--ink); }
+
+.auth-note {
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* ── CHATBOT ── */
+#chat-launcher {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 54px; height: 54px; border-radius: 50%;
+  background: var(--cover); border: 2px solid var(--gold);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.22);
+  z-index: 9999; transition: transform 0.15s, box-shadow 0.15s;
+  overflow: visible;
+}
+#chat-launcher:hover { transform: translate(-2px,-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.3); }
+.chat-pulse {
+  position: absolute; width: 54px; height: 54px; border-radius: 50%;
+  background: rgba(181,135,62,0.25); animation: cpulse 2.5s ease-out infinite;
+}
+@keyframes cpulse {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  70%  { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+#chat-panel {
+  position: fixed; bottom: 94px; right: 28px;
+  width: 360px; max-height: 540px;
+  background: var(--page);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08);
+  display: flex; flex-direction: column;
+  z-index: 9998; overflow: hidden;
+  transform: translateY(12px) scale(0.97); opacity: 0; pointer-events: none;
+  transition: transform 0.22s ease, opacity 0.18s;
+  border-radius: 2px;
+}
+#chat-panel.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: all; }
+.chat-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px;
+  background: var(--cover); color: #fff;
+}
+.chat-avatar { font-size: 1.1rem; flex-shrink: 0; }
+.chat-header-info { flex: 1; }
+.chat-header-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600; font-size: 0.95rem; color: #fff;
+}
+.chat-header-status { font-size: 0.6rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 1px; }
+.chat-close { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.5); font-size: 1rem; padding: 2px 6px; line-height: 1; }
+.chat-close:hover { color: #fff; }
+.chat-chips {
+  display: flex; flex-wrap: wrap; gap: 5px;
+  padding: 10px 14px; border-bottom: 1px solid var(--line);
+  background: #fafaf8;
+}
+.chip {
+  padding: 3px 10px; border: 1px solid var(--line);
+  background: var(--page); color: var(--mid);
+  font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 500;
+  cursor: pointer; transition: all 0.12s; border-radius: 2px;
+}
+.chip:hover { background: var(--cover); color: #fff; border-color: var(--cover); }
+.chat-messages {
+  flex: 1; overflow-y: auto; padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 10px;
+  scrollbar-width: thin; scrollbar-color: var(--line) transparent;
+}
+.cmsg {
+  max-width: 92%; padding: 9px 13px;
+  font-family: 'Inter', sans-serif; font-size: 0.82rem; line-height: 1.58;
+  animation: msgin 0.18s ease;
+}
+@keyframes msgin { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:none; } }
+.cmsg-bot  { background: #f5f4f1; color: var(--ink); border: 1px solid var(--line); align-self: flex-start; }
+.cmsg-user { background: var(--cover); color: #fff; align-self: flex-end; }
+.typing-dots {
+  display: flex; gap: 4px; align-items: center;
+  padding: 10px 13px; background: #f5f4f1; border: 1px solid var(--line);
+  width: fit-content; align-self: flex-start;
+}
+.typing-dots span {
+  width: 5px; height: 5px; background: var(--gold);
+  border-radius: 50%; animation: bdot 1.2s ease infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bdot {
+  0%, 60%, 100% { transform: translateY(0); opacity:0.35; }
+  30% { transform: translateY(-4px); opacity:1; }
+}
+.chat-input-row { display: flex; border-top: 1px solid var(--line); }
+#chat-input {
+  flex: 1; background: var(--page); border: none; border-right: 1px solid var(--line);
+  padding: 10px 14px; color: var(--ink);
+  font-family: 'Inter', sans-serif; font-size: 0.82rem; outline: none;
+}
+#chat-input::placeholder { color: var(--light); }
+#chat-send {
+  background: var(--cover); border: none; padding: 10px 16px;
+  cursor: pointer; color: #fff;
+  font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.15s;
+}
+#chat-send:hover { background: var(--gold); }
+.hire-options { display: flex; flex-direction: column; gap: 5px; margin-top: 8px; }
+.hire-btn {
+  padding: 6px 10px; text-align: left; border: 1px solid var(--line);
+  background: var(--page); color: var(--ink);
+  font-family: 'Inter', sans-serif; font-size: 0.78rem;
+  cursor: pointer; transition: all 0.12s; line-height: 1.35;
+}
+.hire-btn:hover { background: var(--cover); color: #fff; border-color: var(--cover); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  html, body { align-items: flex-start; }
+  .scene { padding: 20px 0; }
+  .book {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  .cover {
+    width: 100%;
+    min-width: 0;
+    border-radius: 0;
+    padding: 28px 24px;
+  }
+  .cover::after { display: none; }
+  .cover-mid { display: none; }
+  .pages-area { min-height: 580px; border-radius: 0; }
+  .tabs {
+    flex-direction: row;
+    right: 0;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    height: 46px;
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--line);
+    z-index: 60;
+  }
+  .tab {
+    border-bottom: none;
+    border-right: 1px solid var(--line);
+  }
+  .tab:last-child { border-right: none; }
+  .tab.active::before {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: auto;
+    width: auto;
+    height: 3px;
+  }
+  .tab-text {
+    writing-mode: initial;
+    transform: none;
+    font-size: 0.52rem;
+  }
+  .pages-wrap {
+    right: 0;
+    bottom: 46px;
+    perspective: 900px;
+  }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .certs { grid-template-columns: 1fr; }
+  .page { padding: 28px 22px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="scene">
+  <div class="book">
+
+    <!-- ══ LEFT COVER ══ -->
+    <div class="cover">
+      <div class="cover-top">
+        <img src="logo-hb.svg" class="cover-logo" alt="HB logo">
+        <div class="cover-name">Heni<br>Bhungalia</div>
+        <div class="cover-rule"></div>
+        <div class="cover-role">AI Product Manager<br>Greater Seattle Area</div>
+        <div class="cover-tagline">"Build for the second visit,<br>not the first."</div>
+      </div>
+
+      <div class="cover-mid"></div>
+
+      <div class="cover-bottom">
+        <div class="cover-meta">
+          Open to Remote<br>
+          No Sponsorship Required<br>
+          <a href="mailto:heni.bhungalia12@gmail.com">heni.bhungalia12@gmail.com</a><br>
+          (206) 604-5153
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ RIGHT: PAGES + TABS ══ -->
+    <div class="pages-area">
+
+      <!-- TABS -->
+      <div class="tabs">
+        <div class="tab active" data-target="about"><span class="tab-text">About</span></div>
+        <div class="tab" data-target="top-work"><span class="tab-text">Top Work</span></div>
+        <div class="tab" data-target="prev-work"><span class="tab-text">Prev. Work</span></div>
+        <div class="tab" data-target="academic"><span class="tab-text">Academic</span></div>
+        <div class="tab" data-target="contact"><span class="tab-text">Contact</span></div>
+      </div>
+
+      <!-- PAGES -->
+      <div class="pages-wrap">
+
+        <!-- Flipper: the 180° turning page card (front = white, back = paper back) -->
+        <div id="flipper">
+          <div id="flip-front"></div>
+          <div id="flip-back"></div>
+        </div>
+
+        <!-- Spine crease shadow at pivot point -->
+        <div id="flip-crease"></div>
+
+        <!-- Shadow cast on destination page by the lifting page -->
+        <div id="flip-shadow"></div>
+
+        <!-- ── ABOUT ── -->
+        <div class="page active" id="pg-about">
+          <div class="page-head">
+            <div class="page-heading">About Heni</div>
+            <div class="page-sub">Senior AI Product Manager &middot; Seattle</div>
+          </div>
+          <div class="divider"></div>
+
+          <p class="about-body">
+            Heni specialises in <strong>AI product development, onboarding, and retention</strong>. She built DreamCRM from scratch to 57&ndash;60% month-1 retention and drove onboarding from 17% to 50% using PostHog funnel analysis. Alongside DreamCRM, she led two other concurrent AI products at AI20 Labs: a funded edge infrastructure platform and an enterprise B2B portal redesign. Technical enough to review API contracts and validate OAuth scopes. Commercial enough to own OKRs end-to-end with founders.
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <span class="stat-n">57&ndash;60%</span>
+              <span class="stat-l">Month-1 Retention</span>
+            </div>
+            <div class="stat">
+              <span class="stat-n">17&rarr;50%</span>
+              <span class="stat-l">Onboarding</span>
+            </div>
+            <div class="stat">
+              <span class="stat-n">7m 41s</span>
+              <span class="stat-l">Avg Session</span>
+            </div>
+            <div class="stat">
+              <span class="stat-n">5+</span>
+              <span class="stat-l">Years PM</span>
+            </div>
+          </div>
+
+          <blockquote class="pullquote">
+            "Heni doesn&rsquo;t just contribute: she elevates the entire team and product direction with her ownership, customer obsession, and execution excellence."
+            <cite>&mdash; Siva Dosapati, Founder &amp; CEO, AI20 Labs</cite>
+          </blockquote>
+        </div>
+
+        <!-- ── TOP WORK ── -->
+        <div class="page" id="pg-top-work">
+          <div class="page-head">
+            <div class="page-heading">Top Work</div>
+            <div class="page-sub">Current Engagements &middot; AI20 Labs</div>
+          </div>
+          <div class="divider"></div>
+
+          <div class="cards">
+            <div class="card">
+              <div class="card-num">01</div>
+              <div class="card-body">
+                <div class="card-title">DreamCRM: AI-Powered CRM, Built From Zero</div>
+                <div class="card-org">AI20 Labs &middot; 2025&ndash;2026</div>
+                <div class="card-desc">Shipped Gmail Sync, LinkedIn Sync, AI-suggested actions, and AI email drafting. Drove onboarding from 17% to 50% via PostHog funnel analysis. 57&ndash;60% month-1 retention vs 20&ndash;30% industry average. 7m 41s avg session. Cleared Google CASA Tier 2 OAuth for B2B sales eligibility.</div>
+                <div class="tags">
+                  <span class="tag">AI Features</span>
+                  <span class="tag">Retention</span>
+                  <span class="tag">CASA Tier 2</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-num">02</div>
+              <div class="card-body">
+                <div class="card-title">ZeroGPU: Portal Strategy That Closed the Round</div>
+                <div class="card-org">AI20 Labs &middot; 2025&ndash;2026</div>
+                <div class="card-desc">Defined Developer and Edge Operator portal strategy for an edge AI infrastructure platform. Validated API architecture via Postman. Product roadmap directly contributed to closing pre-seed and seed funding.</div>
+                <div class="tags">
+                  <span class="tag">Edge AI</span>
+                  <span class="tag">Portal Strategy</span>
+                  <span class="tag">Pre-seed Funded</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-num">03</div>
+              <div class="card-body">
+                <div class="card-title">Unirac Solar: 22 Steps to 8 Inputs in 90 Days</div>
+                <div class="card-org">AI20 Labs Client &middot; Mar&ndash;May 2026</div>
+                <div class="card-desc">Redesign of installer and distributor portal. Collapsed a 22-step BOM workflow into a single 8-input dashboard, cutting interactions by 55%. Led cross-functional team across multiple time zones by aligning stakeholders and leveraging existing product data.</div>
+                <div class="tags">
+                  <span class="tag">Enterprise B2B</span>
+                  <span class="tag">UX Redesign</span>
+                  <span class="tag">55% Reduction</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PREV WORK ── -->
+        <div class="page" id="pg-prev-work">
+          <div class="page-head">
+            <div class="page-heading">Previous Work</div>
+            <div class="page-sub">Earlier Engagements</div>
+          </div>
+          <div class="divider"></div>
+
+          <div class="cards">
+            <div class="card">
+              <div class="card-num">04</div>
+              <div class="card-body">
+                <div class="card-title">Northeastern University: Research Platform &amp; Published Scholar</div>
+                <div class="card-org">Product &amp; Research Lead &middot; Jun 2023 &ndash; May 2025</div>
+                <div class="card-desc">Led 0-to-1 build of CAMD&rsquo;s public research platform through a US&ndash;Italy collaboration. WCAG-compliant, 3 releases delivered on time. Published at DRS 2024: 1,241+ downloads in year one.</div>
+                <div class="tags">
+                  <span class="tag">Research</span>
+                  <span class="tag">WCAG</span>
+                  <span class="tag">1,241+ Downloads</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-num">05</div>
+              <div class="card-body">
+                <div class="card-title">Peapod Digital Labs: Search &amp; Discovery Rebuilt for Conversion</div>
+                <div class="card-org">Technical Product Developer &middot; Jan&ndash;Jun 2022</div>
+                <div class="card-desc">Built customer-facing features for Stop &amp; Shop and Food Lion (300K+ combined daily visitors). Rebuilt search and discovery, lifting order conversion 30% in A/B tests. 25% engagement lift on Weekly Ads and Digital Coupons.</div>
+                <div class="tags">
+                  <span class="tag">E-commerce</span>
+                  <span class="tag">Search</span>
+                  <span class="tag">+30% Conversion</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-num">06</div>
+              <div class="card-body">
+                <div class="card-title">Invica Infotech: Consumer Mobile App, 0 to 100K</div>
+                <div class="card-org">Product Manager &middot; May 2019 &ndash; Nov 2020</div>
+                <div class="card-desc">Defined and shipped a B2C Android app from zero. Grew to 100K+ downloads, 4.5-star rating, 4,790+ reviews. Cut release cycle time by 20% through structured sprint planning and stakeholder alignment.</div>
+                <div class="tags">
+                  <span class="tag">Mobile</span>
+                  <span class="tag">100K+ Downloads</span>
+                  <span class="tag">4.5 &#9733;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── ACADEMIC ── -->
+        <div class="page" id="pg-academic">
+          <div class="page-head">
+            <div class="page-heading">Academic</div>
+            <div class="page-sub">Education &amp; Certifications</div>
+          </div>
+          <div class="divider"></div>
+
+          <div class="edu-section">
+            <div class="section-label">Degrees</div>
+            <div class="edu-row">
+              <div>
+                <div class="edu-deg">M.S. Information Systems</div>
+                <div class="edu-school">Northeastern University, Seattle</div>
+              </div>
+              <div class="edu-yr">2021&ndash;2023</div>
+            </div>
+            <div class="edu-row">
+              <div>
+                <div class="edu-deg">B.E. Computer Science</div>
+                <div class="edu-school">Gujarat Technological University</div>
+              </div>
+              <div class="edu-yr">2015&ndash;2018</div>
+            </div>
+          </div>
+
+          <div class="edu-section">
+            <div class="section-label">Certifications</div>
+            <div class="certs">
+              <div class="cert">
+                <span class="cert-issuer">Anthropic &middot; Jun 2026</span>
+                <span class="cert-name">Claude Code in Action</span>
+              </div>
+              <div class="cert">
+                <span class="cert-issuer">Anthropic &middot; Jun 2026</span>
+                <span class="cert-name">Introduction to Model Context Protocol</span>
+              </div>
+              <div class="cert">
+                <span class="cert-issuer">Anthropic &middot; Jun 2026</span>
+                <span class="cert-name">Building with the Claude API</span>
+              </div>
+              <div class="cert">
+                <span class="cert-issuer">Anthropic &middot; Jun 2026</span>
+                <span class="cert-name">Introduction to Agent Skills</span>
+              </div>
+              <div class="cert">
+                <span class="cert-issuer">AWS &middot; May 2026</span>
+                <span class="cert-name">Exploring AI Use Cases &amp; Applications</span>
+              </div>
+              <div class="cert">
+                <span class="cert-issuer">AWS &middot; May 2026</span>
+                <span class="cert-name">Fundamentals of Machine Learning &amp; AI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── CONTACT ── -->
+        <div class="page" id="pg-contact">
+          <div class="page-head">
+            <div class="page-heading">Contact</div>
+            <div class="page-sub">Let&rsquo;s Talk</div>
+          </div>
+          <div class="divider"></div>
+
+          <div class="contact-intro">Open to senior PM and AI Product Manager roles in Greater Seattle or remote.</div>
+
+          <div class="contact-rows">
+            <div class="contact-row">
+              <div class="c-icon">&#9993;</div>
+              <div class="c-label">Email</div>
+              <div class="c-val"><a href="mailto:heni.bhungalia12@gmail.com">heni.bhungalia12@gmail.com</a></div>
+            </div>
+            <div class="contact-row">
+              <div class="c-icon">&#9990;</div>
+              <div class="c-label">Phone</div>
+              <div class="c-val">(206) 604-5153</div>
+            </div>
+            <div class="contact-row">
+              <div class="c-icon" style="font-size:0.75rem;font-weight:700;">in</div>
+              <div class="c-label">LinkedIn</div>
+              <div class="c-val"><a href="https://linkedin.com/in/heni-bhungalia" target="_blank">linkedin.com/in/heni-bhungalia</a></div>
+            </div>
+          </div>
+
+          <a href="Heni_Bhungalia_PM.pdf" download class="resume-dl">Download Resume</a>
+
+          <p class="auth-note">Authorized to work in the United States &middot; No Sponsorship Required</p>
+        </div>
+
+      </div><!-- /pages-wrap -->
+    </div><!-- /pages-area -->
+
+  </div><!-- /book -->
+</div><!-- /scene -->
+
+<!-- ══ CHATBOT ══ -->
+<button id="chat-launcher" aria-label="Ask about Heni">
+  <div class="chat-pulse"></div>
+  <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:#fff;position:relative;z-index:1;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+  <span style="position:absolute;bottom:-7px;right:-4px;background:var(--gold);color:#fff;font-size:0.5rem;font-weight:700;letter-spacing:0.08em;padding:2px 5px;text-transform:uppercase;">Ask</span>
+</button>
+
+<div id="chat-panel" role="dialog">
+  <div class="chat-header">
+    <div class="chat-avatar">✦</div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">Ask about Heni</div>
+      <div class="chat-header-status">AI Assistant · Always On</div>
+    </div>
+    <button class="chat-close" id="chat-close-btn">&#x2715;</button>
+  </div>
+  <div class="chat-chips" id="chat-chips">
+    <button class="chip" data-q="Who is Heni?">Who is Heni?</button>
+    <button class="chip" data-q="Tell me about DreamCRM">DreamCRM</button>
+    <button class="chip" data-q="What are Heni best metrics?">Key metrics</button>
+    <button class="chip" data-q="What is Heni looking for?">Open to</button>
+    <button class="chip" data-q="Work authorization?">Work auth</button>
+    <button class="chip" data-q="How can I contact Heni?">Contact</button>
+    <button class="chip" data-q="Career highlights">Highlights</button>
+    <button class="chip" data-q="Summarize projects">Projects</button>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-input-row">
+    <input id="chat-input" type="text" placeholder="Ask anything about Heni..." autocomplete="off" />
+    <button id="chat-send">Send</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var KB = [
+    { keys: ["who is","about heni","introduce","tell me about","background","yourself","summary","overview","her story","her profile","who are","describe heni","describe her"],
+      ans: "Heni is an AI Product Manager with 5+ years shipping real products, not just roadmaps. She built DreamCRM from zero to a live AI-powered CRM with Google CASA Tier 2 security clearance, led a peer-reviewed research platform downloaded 1,241+ times, and contributed product strategy that helped ZeroGPU secure pre-seed and seed funding.\n\nShe sits at the intersection of technical depth and product instinct. Comfortable reviewing API docs in the morning and presenting to stakeholders in the afternoon. Based in Greater Seattle, fully open to remote." },
+    { keys: ["dreamcrm","dream crm","crm","gmail sync","linkedin sync","retention","casa","ai crm","email drafting","action items","onboarding"],
+      ans: "DreamCRM is Heni's most complete ground-up build. She took it from a blank canvas to a production AI CRM, shipping Gmail Sync, LinkedIn Sync, AI-suggested action items, and AI email drafting.\n\nThe numbers: 57–60% month-1 retention versus a 20–30% industry average. Onboarding from 17% to 50% via PostHog funnel analysis. Average session: 7m 41s. She also cleared Google CASA Tier 2 OAuth for B2B sales eligibility." },
+    { keys: ["unirac","solar","bom","installer","distributor","portal","redesign","workflow","22 step","8 input","55 percent","55%"],
+      ans: "Heni led the end-to-end redesign of Unirac Solar's installer portal (March–May 2026). The core problem: a 22-step BOM generation workflow with redundant data entry. The new design collapses this into a single 8-input dashboard, cutting interactions by 55%. Led a cross-functional team across multiple time zones." },
+    { keys: ["zerogpu","zero gpu","edge ai","developer portal","edge operator","api architecture","postman","infrastructure","funding","pre-seed","seed","gpu platform"],
+      ans: "ZeroGPU is an edge AI infrastructure platform. Heni defined the Developer and Edge Operator portal strategy, validated the API architecture via Postman, and built out the product roadmap. Outcome: ZeroGPU secured pre-seed and seed funding." },
+    { keys: ["northeastern","research","paper","drs","publication","platform","italy","boston","milan","design research","1241","1,241","academic"],
+      ans: "At Northeastern, Heni led a US–Italy collaborative research project, building a live public platform with teams in Boston and Milan. 3 major releases, all on time. Published at DRS 2024 — 1,241+ downloads in year one." },
+    { keys: ["peapod","stop shop","ahold","grocery","search","ecommerce","order conversion","weekly ads","digital coupons","discovery"],
+      ans: "At Peapod Digital Labs, Heni rebuilt search and discovery for Stop & Shop. Result: 30% increase in order conversion, 25% engagement boost on Weekly Ads and Digital Coupons." },
+    { keys: ["invica","mobile app","100k","100,000","downloads","reviews","4.5","star rating","consumer app","release cycle"],
+      ans: "At Invica Infotech, Heni owned the full product roadmap for a consumer mobile app that reached 100K+ downloads, 4.5-star rating, and 4,790+ user reviews. Reduced release cycles by 20%." },
+    { keys: ["perlucem","financial","banking","fintech","dashboard","poc","mvp","financial intelligence","ubpr","fred","6 weeks","8 weeks"],
+      ans: "Heni took a fintech client's Financial Intelligence Dashboard from POC to MVP in 6–8 weeks with 3 banking stakeholders in weekly review cycles. Integrated UBPR and FRED financial datasets into production dashboards." },
+    { keys: ["ai20","ai20 labs","startup","current","company","employer","studio","concurrent","multiple products"],
+      ans: "AI20 Labs is an AI product studio where Heni works full-time. She is simultaneously running DreamCRM, ZeroGPU, and the Unirac Solar engagement. The volume and variety is the point." },
+    { keys: ["metrics","numbers","impact","results","outcomes","achievements","kpi","data","stats","figures","accomplishments"],
+      ans: "Key numbers:\n\n• 57–60% month-1 retention on DreamCRM vs 20–30% industry avg\n• Onboarding: 17% to 50%\n• 7m 41s average session on DreamCRM\n• Unirac Solar: 55% workflow reduction (22 steps to 8 inputs)\n• 1,241+ research paper downloads in year one\n• 100K+ mobile app downloads, 4.5 stars\n• ZeroGPU roadmap contributed to pre-seed + seed funding\n• 30% conversion lift at Peapod\n\nAll pulled from PostHog, app stores, and public academic records." },
+    { keys: ["skills","technical","tools","stack","posthog","figma","sql","python","amplitude","oauth","expertise","tech stack"],
+      ans: "Technical: LLM product development, API architecture review, SQL, Python, PostHog, Amplitude, Figma. OAuth up to CASA Tier 2, API contracts via Postman.\n\nProduct: 0-to-1 builds, B2B SaaS roadmapping, OKRs, A/B testing, user research, stakeholder management.\n\nMethodologies: Agile, Scrum, RICE prioritization, sprint planning." },
+    { keys: ["education","degree","masters","ms","northeastern","gujarat","information systems","certification","certified","anthropic","aws"],
+      ans: "M.S. Information Systems, Northeastern University Seattle. B.E. Computer Science, Gujarat Technological University.\n\nCertifications (2026): Claude Code in Action, Introduction to MCP, Building with the Claude API, Introduction to Agent Skills (Anthropic). Exploring AI Use Cases and Fundamentals of ML and AI (AWS)." },
+    { keys: ["leadership","manage","team","managing people","mentored","team lead","direct report","people management"],
+      ans: "Heni has directly managed teams of 4–10 people, including training interns, running sprint ceremonies, and owning delivery across concurrent products. At AI20 Labs she coordinates across engineering, design, and external enterprise clients on three simultaneous products." },
+    { keys: ["remote","hybrid","in person","location","relocate","seattle","washington","timezone"],
+      ans: "Heni is based in Greater Seattle and is open to remote, hybrid, or in-person roles in the area. She has led distributed teams across US–Italy time zones." },
+    { keys: ["available","availability","start","start date","notice","when can","immediately","how soon"],
+      ans: "Heni can start on a standard notice period. If you have a specific timeline, reach out at heni.bhungalia12@gmail.com." },
+    { keys: ["work auth","authorization","visa","sponsor","ead","sponsorship","citizen","green card","work permit","authorized"],
+      ans: "Heni is fully authorized to work in the US. No sponsorship needed. Clean, simple hire." },
+    { keys: ["salary","compensation","pay","rate","expect","budget","range","package","total comp"],
+      ans: "Open to discussing based on role, stage, and scope. Reach out at heni.bhungalia12@gmail.com or via LinkedIn." },
+    { keys: ["contact","email","phone","linkedin","reach","talk","call","interview","schedule","meet","connect","get in touch"],
+      ans: "Email: heni.bhungalia12@gmail.com\nPhone: (206) 604-5153\nLinkedIn: linkedin.com/in/heni-bhungalia\n\nShe responds within 24 hours." },
+    { keys: ["looking for","open to","job","role","position","hire","opportunity","seeking","next role","ideal role","what kind of role"],
+      ans: "Senior PM or AI Product Manager at a company serious about building with AI. Greater Seattle or remote. Thrives in early-to-growth-stage environments, 0-to-1 products, technically complex problems." },
+    { keys: ["strength","best at","good at","strong suit","superpower","what she brings","value","differentiate","stand out","sets her apart"],
+      ans: "Three things that set Heni apart:\n\n1. Technical depth without losing the business thread.\n2. Full product ownership from scratch — she ships, not just writes PRDs.\n3. Results you can audit: every metric comes from PostHog, app stores, or public academic records." },
+    { keys: ["highlight","key highlight","standout","best work","proudest","top achievement","interesting","what has she done","portfolio","career highlight","notable"],
+      ans: "A few defining moments:\n\n• DreamCRM: zero to production AI CRM, 57–60% retention.\n• Northeastern: 1,241+ research paper downloads in year one.\n• ZeroGPU: roadmap contributed to pre-seed and seed funding.\n• Unirac Solar: 22-step BOM to 8 inputs, 55% reduction.\n• Peapod: 30% order conversion lift.\n• Invica: 100K+ downloads, 4.5 stars." },
+    { keys: ["ai experience","llm","machine learning","ml","artificial intelligence","ai features","ai product","language model","generative"],
+      ans: "AI product development is Heni's primary lane. She shipped 4 production AI features on DreamCRM. Holds 6 recent AI certifications from Anthropic and AWS (2026). Defined ZeroGPU's edge AI infrastructure product strategy. She defines what AI features should do and ships them." },
+    { keys: ["build the bot","built this","how did you make","who built","this chatbot","this bot","who made","what powers","technology behind"],
+      ans: "This chatbot runs on keyword-matching across a curated knowledge base — no API, no external AI model. It was built as part of Heni's book-style portfolio in Cowork, Anthropic's desktop tool. The irony of an AI PM building her own AI assistant is not lost on her." },
+  ];
+
+  var FALLBACK = "I can answer questions about Heni's experience, projects, skills, availability, or how to reach her.\n\nTry: \"Tell me about DreamCRM\", \"What are her key metrics?\", or \"How do I contact her?\"\n\nOr reach her directly at heni.bhungalia12@gmail.com.";
+
+  var hireAnswers = {
+    "0to1": "DreamCRM is the clearest example. Heni took it from blank canvas to production AI CRM with 4 shipped features. Month-1 retention: 57–60% vs 20–30% industry average. She also took a fintech client from POC to MVP in 6–8 weeks and defined the ZeroGPU portal strategy that contributed to pre-seed funding.",
+    "retention": "On DreamCRM, Heni improved onboarding from 17% to 50% via PostHog funnel analysis and A/B testing. Month-1 retention: 57–60%. At Peapod she drove 30% order conversion lift by rebuilding search. At Invica she grew a mobile app to 100K+ downloads with 4.5 stars.",
+    "enterprise": "Heni led the redesign of Unirac Solar's installer portal — live enterprise B2B work, cross-functional team, multiple time zones. Also took a fintech client's Financial Intelligence Dashboard from POC to MVP with 3 banking stakeholders in weekly review cycles.",
+    "execution": "Signals: 3 concurrent products at AI20 Labs, a fintech client POC to MVP in 6–8 weeks, 3 platform releases at Northeastern all on time and defect-free, 40% delivery cadence improvement. ZeroGPU roadmap contributed directly to funding.",
+    "technical": "B.E. Computer Science, M.S. Information Systems. Validated API contracts via Postman, cleared Google CASA Tier 2 OAuth, instrumented PostHog funnels, integrated UBPR and FRED financial datasets into production. She can read the code and push back on architecture decisions.",
+    "ai": "AI product is Heni's primary lane. 4 production AI features shipped on DreamCRM. 6 recent AI certifications from Anthropic and AWS (2026). ZeroGPU edge AI infrastructure product strategy. Published at DRS 2024, 1,241+ downloads. She defines what AI features do and ships them."
+  };
+
+  function findAnswer(q) {
+    var lower = q.toLowerCase(), best = 0, ans = null;
+    for (var i = 0; i < KB.length; i++) {
+      var score = 0;
+      for (var j = 0; j < KB[i].keys.length; j++) { if (lower.indexOf(KB[i].keys[j]) !== -1) score++; }
+      if (score > best) { best = score; ans = KB[i].ans; }
+    }
+    return ans || FALLBACK;
+  }
+
+  var launcher = document.getElementById("chat-launcher");
+  var panel    = document.getElementById("chat-panel");
+  var closeBtn = document.getElementById("chat-close-btn");
+  var input    = document.getElementById("chat-input");
+  var sendBtn  = document.getElementById("chat-send");
+  var messages = document.getElementById("chat-messages");
+
+  function addMessage(text, role) {
+    var div = document.createElement("div");
+    div.className = "cmsg cmsg-" + role;
+    div.style.whiteSpace = "pre-line";
+    div.textContent = text;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function showTyping() {
+    var t = document.createElement("div");
+    t.className = "typing-dots"; t.id = "typing";
+    t.innerHTML = "<span></span><span></span><span></span>";
+    messages.appendChild(t); messages.scrollTop = messages.scrollHeight;
+  }
+
+  function removeTyping() { var t = document.getElementById("typing"); if (t) t.remove(); }
+
+  function botReply(answer) {
+    showTyping();
+    setTimeout(function() { removeTyping(); addMessage(answer, "bot"); }, 800 + Math.random() * 400);
+  }
+
+  function showWelcome() {
+    showTyping();
+    setTimeout(function() {
+      removeTyping();
+      var div = document.createElement("div");
+      div.className = "cmsg cmsg-bot";
+
+      var intro = document.createElement("p");
+      intro.style.cssText = "margin:0 0 6px;font-style:italic;";
+      intro.textContent = "Hi — I'm Heni's AI assistant. I can answer questions about her work, skills, and background.";
+      div.appendChild(intro);
+
+      var q = document.createElement("p");
+      q.style.cssText = "margin:0 0 10px;font-weight:600;";
+      q.textContent = "What kind of talent are you looking for?";
+      div.appendChild(q);
+
+      var opts = document.createElement("div");
+      opts.className = "hire-options";
+      [["0to1","Building a new product from scratch"],["retention","Improving retention or conversion"],["enterprise","Enterprise B2B / stakeholder-heavy work"],["execution","Fast execution and delivery"],["technical","Technical depth alongside product"],["ai","AI / LLM product experience"]].forEach(function(o) {
+        var b = document.createElement("button");
+        b.className = "hire-btn"; b.setAttribute("data-hire", o[0]); b.textContent = o[1];
+        opts.appendChild(b);
+      });
+      div.appendChild(opts);
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+
+      opts.addEventListener("click", function(e) {
+        var btn = e.target.closest(".hire-btn"); if (!btn) return;
+        opts.querySelectorAll(".hire-btn").forEach(function(b) { b.disabled = true; b.style.opacity = "0.5"; });
+        addMessage(btn.textContent, "user");
+        botReply(hireAnswers[btn.getAttribute("data-hire")] || FALLBACK);
+      });
+    }, 700);
+  }
+
+  function sendMessage(text) {
+    var q = text.trim(); if (!q) return;
+    addMessage(q, "user"); input.value = "";
+    botReply(findAnswer(q));
+  }
+
+  launcher.addEventListener("click", function() {
+    var opened = panel.classList.toggle("open");
+    if (opened && messages.children.length === 0) setTimeout(showWelcome, 200);
+    if (opened) setTimeout(function() { input.focus(); }, 300);
+  });
+  closeBtn.addEventListener("click", function() { panel.classList.remove("open"); });
+  sendBtn.addEventListener("click", function() { sendMessage(input.value); });
+  input.addEventListener("keydown", function(e) { if (e.key === "Enter") sendMessage(input.value); });
+})();
+</script>
+
+<script>
+(function () {
+  var tabs    = document.querySelectorAll('.tab');
+  var current = 'about';
+  var busy    = false;
+
+  var flipper = document.getElementById('flipper');
+  var crease  = document.getElementById('flip-crease');
+  var shadow  = document.getElementById('flip-shadow');
+  var DUR     = 950;
+
+  function s(el, props) {
+    Object.keys(props).forEach(function(k) { el.style[k] = props[k]; });
+  }
+
+  function reflow() { void flipper.getBoundingClientRect(); }
+
+  function navigate(target) {
+    if (target === current || busy) return;
+    busy = true;
+
+    var outPage = document.getElementById('pg-' + current);
+    var inPage  = document.getElementById('pg-' + target);
+
+    // ── Update tabs ──────────────────────────────────────
+    tabs.forEach(function(t) {
+      t.classList.toggle('active', t.getAttribute('data-target') === target);
+    });
+
+    // ── Step 1: Destination page behind flipper, but ABOVE outgoing page ──
+    // z:6 > outPage's CSS z:5, so if flipper disappears early there is no flash of old content
+    s(inPage, { opacity: '1', zIndex: '6', pointerEvents: 'none' });
+    inPage.classList.add('active');
+
+    // ── Step 2: Shadow covers destination (lifts as flipper turns) ──
+    s(shadow, { transition: 'none', opacity: '0.7' });
+
+    // ── Step 3: Crease shadow at spine is fully visible ──
+    s(crease, { transition: 'none', opacity: '1' });
+
+    // ── Step 4: Reset flipper to 0° and show it ──────────
+    s(flipper, { display: 'block', transition: 'none', transform: 'rotateY(0deg)' });
+
+    reflow(); // force layout before starting animation
+
+    // ── Step 5: Full 180° flip — right edge sweeps to the left ──
+    s(flipper, {
+      transition: 'transform ' + DUR + 'ms cubic-bezier(0.37, 0, 0.63, 1)',
+      transform:  'rotateY(-180deg)'
+    });
+
+    // Shadow on destination fades out (page casting shadow lifts away)
+    s(shadow, {
+      transition: 'opacity ' + DUR + 'ms cubic-bezier(0.37, 0, 0.63, 1)',
+      opacity:    '0'
+    });
+
+    s(crease, {
+      transition: 'opacity ' + Math.round(DUR * 0.5) + 'ms ' + Math.round(DUR * 0.5) + 'ms ease-out',
+      opacity:    '0'
+    });
+
+    // ── Step 6: Cleanup ──────────────────────────────────
+    setTimeout(function () {
+      // Retire outgoing page BEFORE removing flipper so it never flashes on top
+      outPage.classList.remove('active');
+      outPage.style.cssText = '';
+
+      flipper.style.display     = 'none';
+      flipper.style.transition  = 'none';
+
+      inPage.style.cssText = '';  // restore to CSS class defaults
+      inPage.scrollTop = 0;
+
+      shadow.style.cssText = '';
+      crease.style.cssText = '';
+
+      current = target;
+      busy    = false;
+    }, DUR + 40);
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      navigate(tab.getAttribute('data-target'));
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
