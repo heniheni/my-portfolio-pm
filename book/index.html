@@ -3,7 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heni Bhungalia | AI Product Manager</title>
+<title>Heni Bhungalia · AI Product Manager · Portfolio</title>
+<meta name="description" content="Book-style portfolio of Heni Bhungalia, AI PM in Seattle. DreamCRM 57–60% retention, ZeroGPU funded, Unirac Solar redesigned in 90 days. Remote-ready." />
+<meta property="og:title" content="Heni Bhungalia | AI Product Manager" />
+<meta property="og:description" content="AI PM with 5+ years shipping real products. 57–60% retention on DreamCRM. ZeroGPU funded. Open to remote." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Heni Bhungalia" />
+<meta property="og:image" content="https://henigb.com/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://henigb.com/book/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Heni Bhungalia | AI Product Manager" />
+<meta name="twitter:description" content="AI PM with 5+ years shipping real products. 57–60% retention on DreamCRM. ZeroGPU funded. Open to remote." />
+<meta name="twitter:image" content="https://henigb.com/og-image.jpg" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://henigb.com/book/" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://henigb.com/#heni",
+      "name": "Heni Bhungalia",
+      "jobTitle": "Senior AI Product Manager",
+      "url": "https://henigb.com",
+      "sameAs": ["https://linkedin.com/in/heni-bhungalia", "https://henigb.com"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://henigb.com/book/#webpage",
+      "url": "https://henigb.com/book/",
+      "name": "Heni Bhungalia — AI Product Manager Portfolio",
+      "description": "Interactive book-style portfolio of Heni Bhungalia, Senior AI Product Manager based in Greater Seattle.",
+      "author": { "@id": "https://henigb.com/#heni" },
+      "isPartOf": { "@type": "WebSite", "url": "https://henigb.com" },
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -772,36 +812,104 @@ html, body {
 .hire-btn:hover { background: var(--cover); color: #fff; border-color: var(--cover); }
 
 /* ── RESPONSIVE ── */
+
+/* Tablet: 721px–1060px — book scales to viewport */
+@media (min-width: 721px) and (max-width: 1060px) {
+  .scene { padding: 24px 16px; align-items: flex-start; }
+  .book {
+    width: calc(100vw - 32px);
+    height: auto;
+    min-height: 0;
+  }
+  .cover {
+    width: 240px;
+    min-width: 240px;
+    padding: 24px 24px 28px 28px;
+  }
+  .cover-name { font-size: 2rem; }
+  .cover-logo { width: 80px; height: 80px; }
+  .cover-mid { display: none; }
+  .pages-area { min-height: 540px; }
+}
+
+/* Mobile: ≤720px */
 @media (max-width: 720px) {
   html, body { align-items: flex-start; }
-  .scene { padding: 20px 0; }
+  .scene { padding: 0; min-height: 100svh; }
+
   .book {
     flex-direction: column;
     width: 100%;
     height: auto;
+    min-height: 100svh;
     border-radius: 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    box-shadow: none;
   }
+
+  /* Cover — compact strip */
   .cover {
     width: 100%;
     min-width: 0;
     border-radius: 0;
-    padding: 28px 24px;
+    padding: 18px 24px;
+    flex-direction: column;
   }
   .cover::after { display: none; }
-  .cover-mid { display: none; }
-  .pages-area { min-height: 580px; border-radius: 0; }
+  .cover-mid   { display: none; }
+  .cover-bottom { display: none; }
+  .cover-tagline { display: none; }
+
+  .cover-logo {
+    width: 52px;
+    height: 52px;
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .cover-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+  }
+
+  .cover-text { flex: 1; }
+
+  .cover-name {
+    font-size: 1.4rem;
+    line-height: 1.1;
+  }
+
+  .cover-rule { display: none; }
+
+  .cover-role {
+    font-size: 0.58rem;
+    line-height: 1.55;
+    margin-top: 5px;
+  }
+
+  /* Pages area fills remaining viewport */
+  .pages-area {
+    flex: 1;
+    min-height: 0;
+    border-radius: 0;
+    /* account for bottom tab bar */
+    padding-bottom: 46px;
+  }
+
+  /* Tab bar — horizontal at bottom */
   .tabs {
     flex-direction: row;
-    right: 0;
-    left: 0;
-    top: auto;
-    bottom: 0;
+    position: fixed;
+    right: 0; left: 0;
+    top: auto; bottom: 0;
     height: 46px;
     width: 100%;
     border-left: none;
     border-top: 1px solid var(--line);
     z-index: 60;
+    background: #fafaf8;
   }
   .tab {
     border-bottom: none;
@@ -809,26 +917,43 @@ html, body {
   }
   .tab:last-child { border-right: none; }
   .tab.active::before {
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: auto;
-    width: auto;
-    height: 3px;
+    top: 0; right: 0; left: 0; bottom: auto;
+    width: auto; height: 3px;
   }
   .tab-text {
     writing-mode: initial;
     transform: none;
-    font-size: 0.52rem;
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
   }
+
   .pages-wrap {
+    position: absolute;
+    inset: 0;
     right: 0;
-    bottom: 46px;
-    perspective: 900px;
+    bottom: 0;
+    perspective: 600px;
   }
+
+  .page { padding: 24px 20px 28px; }
+
+  /* Content adjustments */
   .stats { grid-template-columns: repeat(2, 1fr); }
   .certs { grid-template-columns: 1fr; }
-  .page { padding: 28px 22px 24px; }
+  .page-heading { font-size: 1.6rem; }
+  .about-body { font-size: 0.85rem; }
+  .contact-intro { font-size: 1.1rem; }
+  .edu-row { flex-direction: column; gap: 2px; }
+  .edu-yr { align-self: flex-start; }
+
+  /* Chatbot — full width on mobile */
+  #chat-launcher { right: 16px; bottom: 60px; }
+  #chat-panel {
+    width: calc(100vw - 24px);
+    right: 12px;
+    bottom: 122px;
+    max-height: 65vh;
+  }
 }
 </style>
 </head>
@@ -841,10 +966,12 @@ html, body {
     <div class="cover">
       <div class="cover-top">
         <img src="logo-hb.svg" class="cover-logo" alt="HB logo">
-        <div class="cover-name">Heni<br>Bhungalia</div>
-        <div class="cover-rule"></div>
-        <div class="cover-role">AI Product Manager<br>Greater Seattle Area</div>
-        <div class="cover-tagline">"Build for the second visit,<br>not the first."</div>
+        <div class="cover-text">
+          <div class="cover-name">Heni<br>Bhungalia</div>
+          <div class="cover-rule"></div>
+          <div class="cover-role">AI Product Manager<br>Greater Seattle Area</div>
+          <div class="cover-tagline">"Build for the second visit,<br>not the first."</div>
+        </div>
       </div>
 
       <div class="cover-mid"></div>
