@@ -564,6 +564,37 @@ html, body {
   padding: 2px 7px;
 }
 
+/* ── CARD LINKS ── */
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.card-link {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 3px 9px;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.card-link:hover {
+  background: var(--accent);
+  color: #fff;
+}
+.card-link.secondary {
+  color: var(--mid);
+  border-color: var(--line);
+}
+.card-link.secondary:hover {
+  background: var(--mid);
+  color: #fff;
+}
+
 /* ── ACADEMIC ── */
 .edu-section { margin-bottom: 24px; }
 
@@ -1115,6 +1146,9 @@ html, body {
                   <span class="tag">55% Reduction</span>
                   <span class="tag">$105M YTD Sales</span>
                 </div>
+                <div class="card-links">
+                  <a href="https://multiple-fields-added-unirac.netlify.app/" target="_blank" rel="noopener" class="card-link">View Portal &rarr;</a>
+                </div>
               </div>
             </div>
 
@@ -1143,6 +1177,12 @@ html, body {
                   <span class="tag">Quote Engine</span>
                   <span class="tag">Technician Portal</span>
                 </div>
+                <div class="card-links">
+                  <a href="https://repair-now-voice-first-pwa.henigb.chatgpt.site/" target="_blank" rel="noopener" class="card-link">Voice Portal &rarr;</a>
+                  <a href="https://repair-now-quote-approval-demo.henigb.chatgpt.site/" target="_blank" rel="noopener" class="card-link secondary">Customer Portal</a>
+                  <a href="https://repair-now-quote-approval-demo.henigb.chatgpt.site/technician" target="_blank" rel="noopener" class="card-link secondary">Technician Portal</a>
+                  <a href="https://repair-now-quote-approval-demo.henigb.chatgpt.site/operator" target="_blank" rel="noopener" class="card-link secondary">Operator Portal</a>
+                </div>
               </div>
             </div>
 
@@ -1156,6 +1196,11 @@ html, body {
                   <span class="tag">Property Tech</span>
                   <span class="tag">BD Enablement</span>
                   <span class="tag">AI Research</span>
+                </div>
+                <div class="card-links">
+                  <a href="https://awayday-bd-agent-v2.henigb.chatgpt.site/" target="_blank" rel="noopener" class="card-link">Final Design (V2) &rarr;</a>
+                  <a href="https://awayday-bd-agent-v1.henigb.chatgpt.site/" target="_blank" rel="noopener" class="card-link secondary">V1 &mdash; Scrollable</a>
+                  <a href="https://awayday-bd-agent-minimal.henigb.chatgpt.site/" target="_blank" rel="noopener" class="card-link secondary">V0 &mdash; AI Insights</a>
                 </div>
               </div>
             </div>

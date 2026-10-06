@@ -351,6 +351,23 @@
     margin-top: var(--sp-xs);
   }
 
+  /* ── WORK LINKS ────────────────────────────────────────────── */
+  .work-links { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .work-link {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 2px 8px;
+    text-decoration: none;
+  }
+  .work-link:hover { background: var(--accent); color: var(--paper); }
+  .work-link.secondary { color: var(--rule); border-color: var(--rule); }
+  .work-link.secondary:hover { background: var(--rule); color: var(--paper); }
+
   /* ── COLUMNS ───────────────────────────────────────────────── */
   .cols-3   { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
   .cols-2   { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
@@ -1020,6 +1037,7 @@
       <h3 class="headline-md">Unirac Solar: 22-Step Workflow Collapsed to 8 Inputs in 90 Days</h3>
       <div class="byline">AI20 Labs Client &nbsp;&#9670;&nbsp; March &ndash; May 2026</div>
       <p>Redesign of the installer and distributor portal. Reduced a 22-step BOM generation workflow into a single 8-input dashboard with live editable output, cutting installer interactions by 55 percent and contributing to <strong>$105M+ in YTD sales</strong>. Led cross-functional team across multiple time zones by aligning stakeholders and leveraging existing product data.</p>
+      <div class="work-links"><a href="https://multiple-fields-added-unirac.netlify.app/" target="_blank" rel="noopener" class="work-link">View Portal &rarr;</a></div>
     </div>
     <div class="col">
       <h3 class="headline-md">Financial Intelligence Dashboard: Concept to Live in 4 Months</h3>
@@ -1030,11 +1048,22 @@
       <h3 class="headline-md">Repair Now: Conversational AI Diagnostics for Home Repairs</h3>
       <div class="byline">AI20 Labs Client &nbsp;&#9670;&nbsp; 2025&ndash;2026</div>
       <p>Users describe an appliance problem in plain language; the system asks targeted follow-up questions and returns a repair vs. replace quote grounded in domain-specific APIs. More accurate than generic AI tools, with full diagnosis transparency. Users can request a verified technician directly. Delivered beyond MVP; technician portal in progress.</p>
+      <div class="work-links">
+        <a href="https://repair-now-voice-first-pwa.henigb.chatgpt.site/" target="_blank" rel="noopener" class="work-link">Voice Portal &rarr;</a>
+        <a href="https://repair-now-quote-approval-demo.henigb.chatgpt.site/" target="_blank" rel="noopener" class="work-link secondary">Customer</a>
+        <a href="https://repair-now-quote-approval-demo.henigb.chatgpt.site/technician" target="_blank" rel="noopener" class="work-link secondary">Technician</a>
+        <a href="https://repair-now-quote-approval-demo.henigb.chatgpt.site/operator" target="_blank" rel="noopener" class="work-link secondary">Operator</a>
+      </div>
     </div>
     <div class="col">
       <h3 class="headline-md">AwayDay: Pre-Call Intelligence for Property BD Agents</h3>
       <div class="byline">AI20 Labs Client &nbsp;&#9670;&nbsp; 2025&ndash;2026</div>
       <p>Eliminated the manual pre-call research grind for property BD agents. The system aggregates every public listing for a property, analyzes what is working and what is not, and surfaces actionable insights before the call so agents skip basic questions and have meaningful conversations from minute one. MVP shipped; expanding.</p>
+      <div class="work-links">
+        <a href="https://awayday-bd-agent-v2.henigb.chatgpt.site/" target="_blank" rel="noopener" class="work-link">Final Design (V2) &rarr;</a>
+        <a href="https://awayday-bd-agent-v1.henigb.chatgpt.site/" target="_blank" rel="noopener" class="work-link secondary">V1</a>
+        <a href="https://awayday-bd-agent-minimal.henigb.chatgpt.site/" target="_blank" rel="noopener" class="work-link secondary">V0</a>
+      </div>
     </div>
   </div>
 
