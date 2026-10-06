@@ -637,10 +637,11 @@
   /* ── TESTIMONIALS ──────────────────────────────────────────── */
   .testimonials-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: var(--sp-lg);
     margin: var(--sp-lg) 0;
   }
+  @media (max-width: 1000px) { .testimonials-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 480px) { .testimonials-grid { grid-template-columns: 1fr; } }
   .testimonial-card {
     border-top: var(--r-thick) solid var(--rule);
@@ -1178,6 +1179,17 @@
 
     <div class="testimonial-card">
       <div class="testimonial-mark">&ldquo;</div>
+      <div class="testimonial-highlight">We were stuck going back-and-forth for weeks with the previous consultant, and with Heni&rsquo;s help, we were able to quickly determine the best path forward.</div>
+      <button class="read-more-btn" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? 'Read less &uarr;' : 'Read full endorsement &darr;';">Read full endorsement &darr;</button>
+      <div class="testimonial-more">I am so glad that I get to work with Heni on the UI/UX &amp; product requirements on a software design tool. I am happy to recommend Heni for any product management needs if you are looking for a partner to think through the best path to improve customer experience on your product.<br><br>She started with a thorough interview to understand how we think about the product, and tied in Voice of Customer we gathered. After only a couple sessions, she was able to pinpoint the pain points and come up with clear, easy-to-understand requirements for us to approve. Throughout the process, she kept all levels of stakeholders from the project manager, software developers, all the way to the directors &amp; executives brought along the design journey. On top of having solid visual creativity, Heni also brought deep technical and customer-centered judgement with these designs on Figma. We ended up with a highly-efficient and user-friendly design that cuts the time of design by half while making the workflow so simple that the tool didn&rsquo;t need any manual/guide to use.</div>
+      <div class="testimonial-attribution">
+        <div class="testimonial-name">Keegan Sutanto</div>
+        <div class="testimonial-title">Product Manager, UNIRAC, Inc. &middot; Client</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-mark">&ldquo;</div>
       <div class="testimonial-highlight">Heni approaches design problems with a rare and excellent balance of thoughtfulness and efficiency. Her contributions were critical, not only in shaping the final product but in making the process feel organized, collegial, and purposeful throughout.</div>
       <button class="read-more-btn" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? 'Read less &uarr;' : 'Read full endorsement &darr;';">Read full endorsement &darr;</button>
       <div class="testimonial-more">Heni joined mid-project and quickly oriented herself, bringing clarity and direction to a large and distributed body of work, and adroitly navigating the University bureaucracy to secure internal approvals. She&rsquo;s able to troubleshoot and resolve challenges with minimal oversight, while also demonstrating good judgment about when to seek input.<br><br>Alongside her design and technical contributions, Heni was also a thoughtful collaborator on the academic writing process for our peer-reviewed paper to the Design Research Society. Her comments were constructive, her contributions well-argued, and her writing clear and precise.</div>
@@ -1279,7 +1291,7 @@
       ans: "At Peapod Digital Labs (part of Ahold Delhaize), Heni rebuilt the search and discovery infrastructure for Stop & Shop. The result: a 30% increase in order conversion and a 25% engagement boost on Weekly Ads and Digital Coupons." },
 
     { keys: ["invica","mobile app","100k","100,000","downloads","reviews","4.5","star rating","consumer app","rice","release cycle"],
-      ans: "At Invica Infotech, Heni owned the full product roadmap for a consumer mobile app that reached 100K+ downloads, a 4.5-star rating, and 4,790+ user reviews. She used RICE prioritization and reduced release cycles by 20%." },
+      ans: "At Invica Infotech, Heni owned the full product roadmap for a consumer mobile app that reached 100K+ downloads, a 4.5-star rating, and 4,710+ user reviews. She used RICE prioritization and reduced release cycles by 20%." },
 
     { keys: ["financial","banking","fintech","dashboard","poc","mvp","poc to mvp","financial intelligence","ubpr","fred","4 months"],
       ans: "Heni took a financial intelligence dashboard from concept to live in 4 months for a fintech client. She ran weekly discovery with 3 banking design partners and integrated UBPR and FRED financial datasets into production dashboards with an AI chatbot for natural-language queries. Fast, high-stakes, and delivered." },
@@ -1291,7 +1303,10 @@
       ans: "AwayDay is a pre-call intelligence tool for property BD agents, built for an AI20 Labs client.\n\nThe problem: BD agents spend valuable time manually searching listings, reading reviews, and learning about a property before a call. Heni's system aggregates every public listing for a property, analyzes what is working and what is not, and surfaces the insights automatically.\n\nResult: agents go into every call informed and skip the basic questions that waste everyone's time. MVP shipped and expanding." },
 
     { keys: ["ai20","ai20 labs","startup","current","company","employer","studio","concurrent","multiple products"],
-      ans: "AI20 Labs is an AI product studio where Heni works full-time. It is not a household name. It is the kind of place where you build things rather than manage processes.\n\nShe is running DreamCRM, ZeroGPU, Unirac Solar, financial intelligence, Repair Now, and AwayDay concurrently. The volume and variety is the point." },
+      ans: "AI20 Labs is an AI product studio where Heni works full-time. It is not a household name. It is the kind of place where you build things rather than manage processes.\n\nShe leads DreamCRM and ZeroGPU in-house, plus client work for Unirac Solar, a fintech client, Repair Now, and AwayDay. The volume and variety is the point." },
+
+    { keys: ["keegan","testimonial","recommendation","reference","client say","clients say","what do people say","endorsement","review of heni"],
+      ans: "From Keegan Sutanto, Product Manager at UNIRAC (her client): \"We were stuck going back-and-forth for weeks with the previous consultant, and with Heni's help, we were able to quickly determine the best path forward.\"\n\nHe added that she kept every level of stakeholder, from project managers and developers to directors and executives, brought along the design journey, and that the result cut design time by half with a workflow so simple the tool needed no manual.\n\nSiva Dosapati, Founder & CEO of AI20 Labs, and Michael Arnold Mages of Northeastern University have also endorsed her." },
 
     { keys: ["metrics","numbers","impact","results","outcomes","achievements","kpi","data","stats","figures","accomplishments"],
       ans: "The numbers worth knowing:\n\n• 57–60% month-1 retention on DreamCRM vs 20–30% industry average\n• Onboarding improved from 17% to 50%\n• 7m 41s average session length on DreamCRM\n• 11+ features shipped in 6 months across 3 AI products\n• Unirac Solar BOM workflow cut by 55% (22 steps → 8 inputs)\n• 1,241+ research paper downloads in year one\n• 100K+ mobile app downloads, 4.5 stars, 4,710+ reviews\n• ZeroGPU roadmap contributed to pre-seed + seed funding\n• 30% conversion lift at Peapod (300K+ daily visitors)\n\nAll pulled from PostHog, app stores, and public academic records." },
@@ -1363,7 +1378,7 @@
     "0to1": "DreamCRM is the clearest example. Heni took it from a blank canvas to a production AI CRM with 4 shipped features: Gmail Sync, LinkedIn Sync, AI action items, and AI email drafting. Month-1 retention landed at 57–60% versus the 20–30% industry average. She also drove the team to clear Google CASA Tier 2 security certification, managing prioritisation and timeline with engineering.\n\nShe also built a financial intelligence dashboard from concept to live in 4 months, Repair Now (AI-powered appliance repair diagnostics), and AwayDay (pre-call property intelligence), all beyond MVP for external clients. Plus the ZeroGPU portal strategy that contributed to pre-seed funding.\n\nBuilding new products in ambiguous, fast-moving environments is where she operates best.",
     "retention": "On DreamCRM, Heni improved onboarding completion from 17% to 50% through PostHog funnel analysis and A/B testing. Month-1 retention stabilized at 57–60%, well above the 20–30% industry average.\n\nAt Peapod Digital Labs she drove a 30% increase in order conversion by rebuilding search and discovery infrastructure. At Invica she grew a mobile app to 100K+ downloads with a 4.5-star rating through continuous customer discovery.\n\nHer approach: instrument first, find the drop-off, test fast, ship the fix.",
     "enterprise": "Heni led the redesign of Unirac Solar's installer portal, collapsing a 22-step BOM workflow into 8 inputs with live editable output, cutting interactions by 55% and contributing to $105M+ in YTD sales. Live enterprise B2B work, cross-functional team, multiple time zones.\n\nShe also led a financial intelligence platform concept-to-live in 4 months with 3 banking design partners, and built Repair Now and AwayDay beyond MVP for external clients, both requiring tight client management, iterative design, and on-time delivery.",
-    "execution": "A few signals: 6 concurrent client products at AI20 Labs, financial intelligence platform concept-to-live in 4 months, Repair Now and AwayDay both delivered beyond MVP, 3 platform releases at Northeastern all on time and defect-free, and a 40% improvement in delivery cadence through Agile and OKR alignment.\n\nZeroGPU is another data point: the roadmap she defined contributed directly to securing pre-seed and seed funding.",
+    "execution": "A few signals: 6 products led across AI20 Labs and its clients, financial intelligence platform concept-to-live in 4 months, Repair Now and AwayDay both delivered beyond MVP, 3 platform releases at Northeastern all on time and defect-free, and a 40% improvement in delivery cadence through Agile and OKR alignment.\n\nZeroGPU is another data point: the roadmap she defined contributed directly to securing pre-seed and seed funding.",
     "technical": "Heni holds a B.E. in Computer Science and an M.S. in Information Systems. She has validated API contracts via Postman, partnered with engineering to clear Google CASA Tier 2 OAuth certification, instrumented PostHog funnels, and integrated UBPR and FRED financial datasets into production dashboards.\n\nShe can read the code, push back on architecture decisions, and write specs that reflect what is actually feasible.",
     "ai": "AI product development is Heni's primary lane. She shipped 4 production AI features on DreamCRM and is scoping AI-powered insights for the Unirac Solar redesign.\n\nShe holds 6 recent AI certifications: Claude Code in Action, Introduction to MCP, Building with the Claude API, and Introduction to Agent Skills from Anthropic (June 2026), plus Exploring AI Use Cases and Fundamentals of ML and AI from AWS (May 2026).\n\nShe defined ZeroGPU's edge AI infrastructure product strategy. Published at DRS 2024 with 1,241+ downloads in year one. She does not just use AI tools. She defines what they should do and ships them."
   };

@@ -564,6 +564,30 @@ html, body {
   padding: 2px 7px;
 }
 
+/* ── CARD CLIENT QUOTE ── */
+.card-quote {
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  border-left: 2px solid var(--gold);
+  background: #faf8f3;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.card-quote cite {
+  display: block;
+  margin-top: 4px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
 /* ── CARD LINKS ── */
 .card-links {
   display: flex;
@@ -1070,7 +1094,7 @@ html, body {
           <div class="divider"></div>
 
           <p class="about-body">
-            Heni specialises in <strong>AI product development, onboarding, and retention</strong>. She built DreamCRM from scratch to 57&ndash;60% month-1 retention and drove onboarding from 17% to 50% using PostHog funnel analysis. At AI20 Labs she simultaneously leads four products: DreamCRM, ZeroGPU, an enterprise portal redesign, and a financial intelligence platform shipped concept-to-live in 4 months. Technical enough to review API contracts and validate OAuth scopes. Commercial enough to own OKRs end-to-end with founders.
+            Heni specialises in <strong>AI product development, onboarding, and retention</strong>. She built DreamCRM from scratch to 57&ndash;60% month-1 retention and drove onboarding from 17% to 50% using PostHog funnel analysis. At AI20 Labs she leads products for the studio and its clients: DreamCRM, ZeroGPU, the Unirac Solar portal redesign, a financial intelligence platform shipped concept-to-live in 4 months, Repair Now, and AwayDay. Technical enough to review API contracts and validate OAuth scopes. Commercial enough to own OKRs end-to-end with founders.
           </p>
 
           <div class="stats">
@@ -1146,6 +1170,7 @@ html, body {
                   <span class="tag">55% Reduction</span>
                   <span class="tag">$105M YTD Sales</span>
                 </div>
+                <blockquote class="card-quote">&ldquo;We were stuck going back-and-forth for weeks with the previous consultant, and with Heni&rsquo;s help, we were able to quickly determine the best path forward.&rdquo;<cite>Keegan Sutanto, Product Manager, UNIRAC</cite></blockquote>
                 <div class="card-links">
                   <a href="https://multiple-fields-added-unirac.netlify.app/" target="_blank" rel="noopener" class="card-link">Final Build &rarr;</a>
                   <a href="https://www.figma.com/make/XTJM3fvDPfoK5XiPXJdJT1/Unirac---Design-Review-Copy?p=f&amp;t=0kMZAKHC3F5JefFM-0" target="_blank" rel="noopener" class="card-link secondary">Design Review</a>
@@ -1408,7 +1433,7 @@ html, body {
     { keys: ["peapod","stop shop","ahold","grocery","search","ecommerce","order conversion","weekly ads","digital coupons","discovery"],
       ans: "At Peapod Digital Labs, Heni rebuilt search and discovery for Stop & Shop. Result: 30% increase in order conversion, 25% engagement boost on Weekly Ads and Digital Coupons." },
     { keys: ["invica","mobile app","100k","100,000","downloads","reviews","4.5","star rating","consumer app","release cycle"],
-      ans: "At Invica Infotech, Heni owned the full product roadmap for a consumer mobile app that reached 100K+ downloads, 4.5-star rating, and 4,790+ user reviews. Reduced release cycles by 20%." },
+      ans: "At Invica Infotech, Heni owned the full product roadmap for a consumer mobile app that reached 100K+ downloads, 4.5-star rating, and 4,710+ user reviews. Reduced release cycles by 20%." },
     { keys: ["financial","banking","fintech","dashboard","financial intelligence","ubpr","fred","community bank","mid-size bank","chatbot","bank executives","design partner"],
       ans: "Heni led a 0-to-1 financial intelligence product end-to-end for a fintech client at AI20 Labs, taking it from concept to live in 4 months. Translated UBPR and FRED datasets into metrics for community and mid-size banks. Ran weekly discovery with 3 banking design partners and shipped a dashboard plus an AI chatbot that answers natural-language questions grounded in the bank's own data. Now in active review with bank executives." },
     { keys: ["repair now","repair","appliance","dishwasher","home repair","technician","quote","diagnosis","conversational","repair vs replace","portal"],
@@ -1416,9 +1441,11 @@ html, body {
     { keys: ["awayday","away day","property","bd agent","business development","listing","real estate","pre-call","property research"],
       ans: "AwayDay is a pre-call intelligence tool for property BD agents built for an AI20 Labs client. Before a call, the system aggregates every public listing for a property, analyzes what is working and what is not, and surfaces actionable insights. Instead of spending time on manual research and asking basic questions, agents go into every call informed and ready for a meaningful conversation. MVP shipped and the product is now expanding." },
     { keys: ["ai20","ai20 labs","startup","current","company","employer","studio","concurrent","multiple products"],
-      ans: "AI20 Labs is an AI product studio where Heni works full-time. She is simultaneously running DreamCRM, ZeroGPU, and the Unirac Solar engagement. The volume and variety is the point." },
+      ans: "AI20 Labs is an AI product studio where Heni works full-time. She leads DreamCRM and ZeroGPU in-house, plus client work for Unirac Solar, a fintech client, Repair Now, and AwayDay. The volume and variety is the point." },
+    { keys: ["keegan","testimonial","recommendation","reference","client say","clients say","what do people say","endorsement","review of heni"],
+      ans: "From Keegan Sutanto, Product Manager at UNIRAC (her client): \"We were stuck going back-and-forth for weeks with the previous consultant, and with Heni's help, we were able to quickly determine the best path forward.\"\n\nHe added that she kept every level of stakeholder, from project managers and developers to directors and executives, brought along the design journey, and that the result cut design time by half with a workflow so simple the tool needed no manual.\n\nSiva Dosapati, Founder & CEO of AI20 Labs, and Michael Arnold Mages of Northeastern University have also endorsed her." },
     { keys: ["metrics","numbers","impact","results","outcomes","achievements","kpi","data","stats","figures","accomplishments"],
-      ans: "Key numbers:\n\n• 57–60% month-1 retention on DreamCRM vs 20–30% industry avg\n• Onboarding: 17% to 50%\n• 7m 41s average session on DreamCRM\n• Unirac Solar: 55% workflow reduction (22 steps to 8 inputs)\n• 1,241+ research paper downloads in year one\n• 100K+ mobile app downloads, 4.5 stars\n• ZeroGPU roadmap contributed to pre-seed + seed funding\n• 30% conversion lift at Peapod\n\nAll pulled from PostHog, app stores, and public academic records." },
+      ans: "Key numbers:\n\n• 57–60% month-1 retention on DreamCRM vs 20–30% industry avg\n• Onboarding: 17% to 50%\n• 7m 41s average session on DreamCRM\n• Unirac Solar: 55% workflow reduction (22 steps to 8 inputs), contributing to $105M+ YTD sales\n• Financial intelligence platform: concept to live in 4 months\n• 1,241+ research paper downloads in year one\n• 100K+ mobile app downloads, 4.5 stars\n• ZeroGPU roadmap contributed to pre-seed + seed funding\n• 30% conversion lift at Peapod\n\nAll pulled from PostHog, app stores, and public academic records." },
     { keys: ["skills","technical","tools","stack","posthog","figma","sql","python","amplitude","oauth","expertise","tech stack"],
       ans: "Technical: LLM product development, API architecture review, SQL, Python, PostHog, Amplitude, Figma. OAuth up to CASA Tier 2, API contracts via Postman.\n\nProduct: 0-to-1 builds, B2B SaaS roadmapping, OKRs, A/B testing, user research, stakeholder management.\n\nMethodologies: Agile, Scrum, RICE prioritization, sprint planning." },
     { keys: ["education","degree","masters","ms","northeastern","gujarat","information systems","certification","certified","anthropic","aws"],
@@ -1453,7 +1480,7 @@ html, body {
     "0to1": "DreamCRM is the clearest example. Heni took it from blank canvas to production AI CRM with 4 shipped features. Month-1 retention: 57–60% vs 20–30% industry average. She also took a financial intelligence product from concept to live in 4 months for a fintech client, built Repair Now (an AI repair portal) and AwayDay (pre-call intelligence for property BD agents) beyond MVP, and defined the ZeroGPU portal strategy that contributed to pre-seed funding.",
     "retention": "On DreamCRM, Heni improved onboarding from 17% to 50% via PostHog funnel analysis and A/B testing. Month-1 retention: 57–60%. At Peapod she drove 30% order conversion lift by rebuilding search. At Invica she grew a mobile app to 100K+ downloads with 4.5 stars.",
     "enterprise": "Heni led the redesign of Unirac Solar's installer portal, live enterprise B2B work, cross-functional team, multiple time zones. Also led a financial intelligence platform concept-to-live in 4 months with 3 banking design partners. Built Repair Now (AI diagnostics and technician routing) and AwayDay (pre-call property intelligence for BD teams), both for external clients and both delivered beyond MVP.",
-    "execution": "Signals: 6 concurrent client products at AI20 Labs, financial intelligence platform concept-to-live in 4 months, Repair Now and AwayDay both delivered beyond MVP, 11+ features shipped in 6 months, 3 platform releases at Northeastern all on time and defect-free. ZeroGPU roadmap contributed directly to funding.",
+    "execution": "Signals: 6 products led across AI20 Labs and its clients, financial intelligence platform concept-to-live in 4 months, Repair Now and AwayDay both delivered beyond MVP, 11+ features shipped in 6 months, 3 platform releases at Northeastern all on time and defect-free. ZeroGPU roadmap contributed directly to funding.",
     "technical": "B.E. Computer Science, M.S. Information Systems. Validated API contracts via Postman, cleared Google CASA Tier 2 OAuth, instrumented PostHog funnels, integrated UBPR and FRED financial datasets into production. She can read the code and push back on architecture decisions.",
     "ai": "AI product is Heni's primary lane. 4 production AI features shipped on DreamCRM. 6 recent AI certifications from Anthropic and AWS (2026). ZeroGPU edge AI infrastructure product strategy. Published at DRS 2024, 1,241+ downloads. She defines what AI features do and ships them."
   };
