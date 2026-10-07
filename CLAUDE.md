@@ -91,7 +91,7 @@ All metrics are sourced from real data. Never alter these numbers without Heni's
 ## Key Design Rules
 
 - No em dashes anywhere in copy
-- Portfolio copy is written in first person ("I built..."), never third person ("Heni built..." / "She..."). Exceptions: testimonials (others' words) and the chatbot, which speaks as Heni's assistant
+- Voice: the book edition (root `index.html`) is written in first person ("I built..."). The newspaper edition (`newspaper/index.html`) stays in third person ("Heni Bhungalia shipped...", "She led...") to fit the reporter-style vibe. Testimonials and the chatbot (Heni's assistant) are third person in both
 - Work authorization line: "Authorized to work in the United States · No Sponsorship Required" — never mention H4 EAD
 - Unirac Solar framing: Heni is leveraging existing product data and aligning stakeholders — she is NOT doing user research with field installers
 - Responsive: single-column stacking on mobile via `@media (max-width: 700px)`
