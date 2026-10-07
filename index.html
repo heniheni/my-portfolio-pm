@@ -600,22 +600,28 @@ html, body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid var(--accent);
+  color: var(--ink);
+  background: var(--gold-lt);
+  border: 1px solid var(--gold);
   padding: 3px 9px;
   text-decoration: none;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
-.card-link:hover {
-  background: var(--accent);
+.card-link:hover,
+.card-link:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
   color: #fff;
 }
 .card-link.secondary {
   color: var(--mid);
+  background: transparent;
   border-color: var(--line);
 }
-.card-link.secondary:hover {
+.card-link.secondary:hover,
+.card-link.secondary:focus-visible {
   background: var(--mid);
+  border-color: var(--mid);
   color: #fff;
 }
 
@@ -869,7 +875,7 @@ html, body {
   font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.15s;
 }
-#chat-send:hover { background: var(--gold); }
+#chat-send:hover { background: var(--gold); color: var(--ink); }
 .hire-options { display: flex; flex-direction: column; gap: 5px; margin-top: 8px; }
 .hire-btn {
   padding: 6px 10px; text-align: left; border: 1px solid var(--line);
