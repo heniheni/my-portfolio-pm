@@ -19,10 +19,10 @@ The portfolio uses a deliberate ironic contrast: 1920s letterpress newspaper aes
 
 ## Features
 
-- **Breaking news ticker** scrolls key metrics; pauses on hover so recruiters can read
-- **Sticky navigation bar** stays visible as you scroll
+- **Breaking news ticker**. Scrolls key metrics; pauses on hover so recruiters can read
+- **Sticky navigation bar**. Stays visible as you scroll
 - **Vintage newspaper layout**, multi-column grid, drop caps, pull quotes, classifieds-style skills section, stats box, photo placeholder
-- **AI chatbot widget** opens with a "What are you hiring for?" welcome flow (6 options: 0-to-1, retention, enterprise, execution, technical depth, AI/LLM), then handles freeform questions via keyword matching across 17 knowledge base entries
+- **AI chatbot widget**. Opens with a "What are you hiring for?" welcome flow (6 options: 0-to-1, retention, enterprise, execution, technical depth, AI/LLM), then handles freeform questions via keyword matching across 17 knowledge base entries
 - **Cloudflare email protection**. Email addresses are obfuscated server-side; decoded by Cloudflare's script on the live URL
 - **Fully responsive**, single-column stacking on mobile
 
