@@ -368,6 +368,86 @@
   .work-link.secondary { color: var(--rule); border-color: var(--rule); }
   .work-link.secondary:hover { background: var(--rule); color: var(--paper); }
 
+  /* ── CASE STUDY (SPECIAL REPORT) ────────────────────────────── */
+  button.work-link { font-family: 'Playfair Display', serif; background: none; cursor: pointer; }
+  .col.has-case { cursor: pointer; }
+  .np-case-overlay {
+    position: fixed; inset: 0;
+    background: rgba(26,18,8,0.6);
+    display: flex; align-items: center; justify-content: center;
+    padding: var(--sp-lg);
+    z-index: 10000;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .np-case-overlay.open { opacity: 1; pointer-events: all; }
+  .np-case {
+    position: relative;
+    background: var(--paper);
+    border: 4px double var(--rule);
+    width: 100%; max-width: 720px; max-height: 88vh;
+    overflow-y: auto;
+    padding: var(--sp-lg) var(--sp-xl) var(--sp-lg);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+    transform: translateY(10px);
+    transition: transform 0.2s;
+  }
+  .np-case-overlay.open .np-case { transform: translateY(0); }
+  .np-case-close {
+    position: absolute; top: 10px; right: 12px;
+    background: none; border: none; cursor: pointer;
+    font-size: 1.1rem; line-height: 1; color: var(--rule); padding: 4px 6px;
+  }
+  .np-case-close:hover, .np-case-close:focus-visible { color: var(--accent); }
+  .np-case .headline-lg { text-align: center; margin-top: var(--sp-xs); }
+  .np-case .byline { text-align: center; }
+  .np-case-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sepia);
+    margin: var(--sp-md) 0 var(--sp-xs);
+  }
+  .np-case p {
+    font-size: 0.92rem; line-height: 1.65;
+    text-align: justify; hyphens: auto;
+    margin-bottom: var(--sp-sm);
+  }
+  .np-case-steps {
+    list-style: none; counter-reset: npstep;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: var(--r-thin) solid var(--rule);
+    border-bottom: var(--r-thin) solid var(--rule);
+    margin: var(--sp-sm) 0 var(--sp-xs); padding: 0;
+  }
+  .np-case-steps li {
+    counter-increment: npstep;
+    padding: var(--sp-sm);
+    font-size: 0.8rem; line-height: 1.35;
+    border-right: 1px dotted var(--rule);
+  }
+  .np-case-steps li:last-child { border-right: none; }
+  .np-case-steps li::before {
+    content: "No. " counter(npstep);
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 0.72rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 2px;
+  }
+  .np-case .stats-box { margin: var(--sp-sm) 0 0; }
+  .np-case .pull-quote { margin-bottom: 0; }
+  body.case-open #chat-launcher,
+  body.case-open #chat-panel { display: none !important; }
+  @media (max-width: 768px) {
+    .np-case-overlay { padding: 0; align-items: flex-end; }
+    .np-case { max-height: 92vh; padding: var(--sp-lg) var(--sp-md) var(--sp-md); }
+    .np-case p { text-align: left; hyphens: none; }
+    .np-case-steps { grid-template-columns: 1fr 1fr; }
+    .np-case-steps li:nth-child(2) { border-right: none; }
+    .np-case-steps li:nth-child(-n+2) { border-bottom: 1px dotted var(--rule); }
+  }
+
   /* ── COLUMNS ───────────────────────────────────────────────── */
   .cols-3   { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
   .cols-2   { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
@@ -1020,11 +1100,12 @@
 
   <!-- PROJECTS: 2x2 grid -->
   <div class="cols-2">
-    <div class="col">
+    <div class="col has-case" data-case="np-case-dreamcrm">
       <h3 class="headline-md">DreamCRM: An AI-Powered CRM Built From Zero</h3>
       <div class="byline">AI20 Labs &nbsp;&#9670;&nbsp; 2026</div>
       <p>Built from zero: Gmail Sync, LinkedIn Sync, AI-suggested actions, AI email drafting. Month-1 retention: <strong>57–60%</strong> vs a 20–30% industry average. Onboarding: <strong>17% to 50%</strong>. Avg. session length: <strong>7m 41s</strong>.</p>
       <p>Cleared Google CASA Tier 2 OAuth, a B2B sales eligibility gate most early-stage teams skip entirely.</p>
+      <div class="work-links"><button type="button" class="work-link" data-case-open="np-case-dreamcrm" aria-haspopup="dialog">Read the Full Story &rarr;</button></div>
     </div>
     <div class="col">
       <h3 class="headline-md">ZeroGPU: Portal Strategy That Secured Funding</h3>
@@ -1515,5 +1596,88 @@
 
 })();
 </script>
+<!-- ── SPECIAL REPORT: DREAMCRM CASE STUDY ── -->
+<div class="np-case-overlay" id="np-case-dreamcrm" aria-hidden="true">
+  <div class="np-case" role="dialog" aria-modal="true" aria-labelledby="np-case-dreamcrm-title" tabindex="-1">
+    <button type="button" class="np-case-close" aria-label="Close case study">&#10005;</button>
+    <div class="section-label">&#9670; Special Report &#9670;</div>
+    <hr class="rule-thin">
+    <h2 class="headline-lg" id="np-case-dreamcrm-title">DreamCRM: Gmail-Native AI CRM for Solo Business Owners</h2>
+    <div class="byline">By Our Technology Correspondent &nbsp;&#9670;&nbsp; AI20 Labs &nbsp;&#9670;&nbsp; 2025&ndash;2026</div>
+    <hr class="rule-double">
+
+    <div class="np-case-sub">The Problem</div>
+    <p>People signed up and then disappeared. Most dropped off during onboarding, and the ones who made it through landed on an empty dashboard and never came back.</p>
+
+    <div class="np-case-sub">What She Did</div>
+    <p>Heni reviewed about 30 session recordings and interviewed about 18 users. Two groups stood out. One got lost in a setup flow with several competing buttons and a required assistant-creation step, so they never reached the dashboard. The other reached the dashboard, found it empty, and skipped the long getting-started text.</p>
+    <p>She compared two onboarding approaches with the founders and engineers, and the team chose a single screen showing four steps and what comes next. That way the dashboard already has something in it when people arrive.</p>
+    <ol class="np-case-steps">
+      <li>Sign up</li>
+      <li>Create your assistant</li>
+      <li>Connect Gmail or CC the assistant</li>
+      <li>Send your first email</li>
+    </ol>
+
+    <div class="np-case-sub">What Was Tracked</div>
+    <p>Sign-ups, people who actually used the assistant (CC&rsquo;d it, sent an email, or turned on Gmail sync), and people who came back to act on the next suggested item.</p>
+
+    <div class="np-case-sub">Results</div>
+    <p>Onboarding completion went from 17% to 50%. Month-one retention reached 57 to 60%, against a typical 20 to 30% for B2B CRMs.</p>
+    <div class="stats-box">
+      <div class="stats-box-title">&#9670; The Figures &#9670;</div>
+      <div class="stat-row"><span>Onboarding Completion</span><span class="stat-number">17% &rarr; 50%</span></div>
+      <div class="stat-row"><span>Month-One Retention</span><span class="stat-number">57&ndash;60%</span></div>
+      <div class="stat-row"><span>Typical B2B CRM Retention</span><span class="stat-number">20&ndash;30%</span></div>
+    </div>
+
+    <div class="np-case-sub">What This Means for Your Product</div>
+    <div class="pull-quote">If people sign up and then go quiet, the fix is often in the first few minutes, not in new features.</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var lastFocus = null;
+  function openCase(id) {
+    var ov = document.getElementById(id);
+    if (!ov) return;
+    lastFocus = document.activeElement;
+    ov.classList.add('open');
+    ov.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('case-open');
+    var m = ov.querySelector('.np-case');
+    m.scrollTop = 0;
+    m.focus();
+  }
+  function closeCase(ov) {
+    ov.classList.remove('open');
+    ov.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    document.body.classList.remove('case-open');
+    if (lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll('[data-case-open]').forEach(function (b) {
+    b.addEventListener('click', function (e) { e.stopPropagation(); openCase(b.getAttribute('data-case-open')); });
+  });
+  document.querySelectorAll('.col.has-case').forEach(function (c) {
+    c.addEventListener('click', function (e) {
+      if (e.target.closest('a, button')) return;
+      openCase(c.getAttribute('data-case'));
+    });
+  });
+  document.querySelectorAll('.np-case-overlay').forEach(function (ov) {
+    ov.addEventListener('click', function (e) { if (e.target === ov) closeCase(ov); });
+    ov.querySelector('.np-case-close').addEventListener('click', function () { closeCase(ov); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    var ov = document.querySelector('.np-case-overlay.open');
+    if (ov) closeCase(ov);
+  });
+})();
+</script>
+
 </body>
 </html>
