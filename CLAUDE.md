@@ -92,6 +92,6 @@ All metrics are sourced from real data. Never alter these numbers without Heni's
 
 - No em dashes anywhere in copy
 - Voice: the book edition (root `index.html`) is written in first person ("I built..."). The newspaper edition (`newspaper/index.html`) stays in third person ("Heni Bhungalia shipped...", "She led...") to fit the reporter-style vibe. Testimonials and the chatbot (Heni's assistant) are third person in both
-- Work authorization line: "Authorized to work in the United States · No Sponsorship Required" — never mention H4 EAD
+- Do not display a work authorization or "No Sponsorship Required" line anywhere (removed at Heni's request; the site frames her as available for consulting). Never mention H4 EAD
 - Unirac Solar framing: Heni is leveraging existing product data and aligning stakeholders — she is NOT doing user research with field installers
 - Responsive: single-column stacking on mobile via `@media (max-width: 700px)`
