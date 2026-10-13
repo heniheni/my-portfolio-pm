@@ -1,4 +1,4 @@
-# Heni Bhungalia — AI Product Manager Portfolio
+# Heni Bhungalia, AI Product Manager Portfolio
 
 A vintage 1920s newspaper-style portfolio for Heni Bhungalia, AI / Technical Product Manager based in Greater Seattle.
 
@@ -8,23 +8,23 @@ Hosted via Cloudflare Pages (or GitHub Pages). The entry point is `index.html`.
 
 ## Design Concept
 
-The portfolio uses a deliberate ironic contrast: 1920s letterpress newspaper aesthetic presenting cutting-edge AI product metrics. The tension between old-world typesetting and modern AI output is the point — it demonstrates product thinking and makes the portfolio memorable.
+The portfolio uses a deliberate ironic contrast: 1920s letterpress newspaper aesthetic presenting cutting-edge AI product metrics. The tension between old-world typesetting and modern AI output is the point. It demonstrates product thinking and makes the portfolio memorable.
 
 ## Tech Stack
 
-- Pure HTML / CSS / JavaScript — no frameworks, no build step
+- Pure HTML / CSS / JavaScript, no frameworks, no build step
 - Fonts: UnifrakturMaguntia (masthead), Playfair Display (headlines), EB Garamond (body) via Google Fonts
 - CSS design tokens for consistent spacing and rule weights
 - Vanilla JS chatbot with a pre-crafted knowledge base (no API key required)
 
 ## Features
 
-- **Breaking news ticker** — scrolls key metrics; pauses on hover so recruiters can read
-- **Sticky navigation bar** — stays visible as you scroll
-- **Vintage newspaper layout** — multi-column grid, drop caps, pull quotes, classifieds-style skills section, stats box, photo placeholder
-- **AI chatbot widget** — opens with a "What are you hiring for?" welcome flow (6 options: 0-to-1, retention, enterprise, execution, technical depth, AI/LLM), then handles freeform questions via keyword matching across 17 knowledge base entries
-- **Cloudflare email protection** — email addresses are obfuscated server-side; decoded by Cloudflare's script on the live URL
-- **Fully responsive** — single-column stacking on mobile
+- **Breaking news ticker** scrolls key metrics; pauses on hover so recruiters can read
+- **Sticky navigation bar** stays visible as you scroll
+- **Vintage newspaper layout**, multi-column grid, drop caps, pull quotes, classifieds-style skills section, stats box, photo placeholder
+- **AI chatbot widget** opens with a "What are you hiring for?" welcome flow (6 options: 0-to-1, retention, enterprise, execution, technical depth, AI/LLM), then handles freeform questions via keyword matching across 17 knowledge base entries
+- **Cloudflare email protection**. Email addresses are obfuscated server-side; decoded by Cloudflare's script on the live URL
+- **Fully responsive**, single-column stacking on mobile
 
 ## Key Content
 

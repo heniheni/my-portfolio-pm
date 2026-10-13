@@ -1,4 +1,4 @@
-# Project Notes — Heni Bhungalia Portfolio
+# Project Notes, Heni Bhungalia Portfolio
 
 ## What This Project Is
 
@@ -13,7 +13,7 @@ This is Heni's primary job-search portfolio, built to land a Senior PM or AI Pro
 - Title: "AI / Technical Product Manager | Greater Seattle Area"
 - V2 (`create_resume_v2.py`) applies ChatGPT suggestions: tighter bullets, stronger verbs ("Owned" instead of "collaborated"), adds "Open to Remote" to title
 
-### Original Portfolio (index.html — dark AI theme)
+### Original Portfolio (index.html, dark AI theme)
 - Dark-themed portfolio at `/mnt/My Portfolio/index.html`
 - Includes the same chatbot widget
 - Not under this git repo
@@ -21,13 +21,13 @@ This is Heni's primary job-search portfolio, built to land a Senior PM or AI Pro
 ### Newspaper Portfolio (this repo)
 Built across multiple sessions. Key decisions and changes:
 
-**v1 — initial concept**
+**v1, initial concept**
 - 1920s letterpress newspaper aesthetic
 - UnifrakturMaguntia + Playfair Display + EB Garamond font stack
 - Paper color palette: `--paper: #f4edd8`, `--ink: #1a1208`, `--sepia: #8b6914`, `--accent: #8b1a1a`
 - Masthead originally said "The AI Gazette"
 
-**v2 — readability and content fixes**
+**v2, readability and content fixes**
 - Fixed low-contrast text
 - Corrected year 2025 → 2026 throughout
 - Removed all em dashes
@@ -36,7 +36,7 @@ Built across multiple sessions. Key decisions and changes:
 - Chat launcher changed from envelope icon to SVG chat bubble with "Ask" badge
 - Ticker pauses on hover: `.ticker-wrap:hover .ticker-content { animation-play-state: paused; }`
 
-**v3.9 (current — index.html)**
+**v3.9 (current, index.html)**
 Heni's own iteration on top of v2, under git:
 - Masthead name changed to "Heni Bhungalia" in UnifrakturMaguntia
 - Added CSS design token system (`--sp-xs/sm/md/lg/xl`, `--r-hair/thin/mid/thick`)
@@ -51,7 +51,7 @@ Heni's own iteration on top of v2, under git:
 
 ## Chatbot Architecture
 
-- No API key — pre-crafted knowledge base with 17 entries
+- No API key, pre-crafted knowledge base with 17 entries
 - Pattern: `{ keys: [...keywords...], ans: "..." }`
 - Keyword matching via `indexOf` across all KB entries
 - Opens with a "What are you hiring for?" welcome flow (6 hire-type buttons)
@@ -90,7 +90,7 @@ All sourced from real data (PostHog, app stores, public academic records):
 
 - **Cloudflare email obfuscation**: emails render as `[email protected]` when file is opened locally (not via the live Cloudflare URL). Works correctly when deployed.
 - **Photo placeholder**: `[ Portrait of the Subject ]` box exists but no actual photo yet
-- **"Heni Bhungalia" in blackletter**: worth confirming the masthead font renders well visually in the browser — Latin name in UnifrakturMaguntia is unconventional
+- **"Heni Bhungalia" in blackletter**: worth confirming the masthead font renders well visually in the browser. Latin name in UnifrakturMaguntia is unconventional
 - **index.html** is the only file that should be worked on going forward (per Heni's instruction)
 
 ## Git Setup

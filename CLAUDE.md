@@ -4,13 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Single-file portfolio site for Heni Bhungalia, AI Product Manager. The design is a deliberate 1920s letterpress newspaper aesthetic — the ironic contrast between old-world typesetting and cutting-edge AI metrics is intentional and central to the identity.
+Single-file portfolio site for Heni Bhungalia, AI Product Manager. The design is a deliberate 1920s letterpress newspaper aesthetic, and the ironic contrast between old-world typesetting and cutting-edge AI metrics is intentional and central to the identity.
 
 **Only `index.html` should be edited.** All content, styles, and JavaScript live in this one file. No build step, no framework.
 
 ## Tech Stack
 
-- Pure HTML / CSS / JS — no build tools, no dependencies, no package.json
+- Pure HTML / CSS / JS, no build tools, no dependencies, no package.json
 - Fonts via Google Fonts: Playfair Display (headlines, masthead name), Inter (body)
 - Deployed via GitHub Pages at `heniheni.github.io/my-portfolio-pm`; Cloudflare proxies the live URL and handles email obfuscation
 
@@ -22,7 +22,7 @@ Open `index.html` directly in a browser. No server required.
 open index.html
 ```
 
-Note: Cloudflare email obfuscation will not work locally — email addresses will display as `[email protected]`. This is expected behavior; it works correctly on the live URL.
+Note: Cloudflare email obfuscation will not work locally, and email addresses will display as `[email protected]`. This is expected behavior; it works correctly on the live URL.
 
 ## Pushing Changes
 
@@ -36,8 +36,8 @@ git push
 
 The file is ~1,250 lines structured in order:
 
-1. **`<head>`** — meta tags, Google Fonts link, all CSS (~700 lines)
-2. **`<body>`** — HTML sections then inline `<script>` at the bottom
+1. **`<head>`**, meta tags, Google Fonts link, all CSS (~700 lines)
+2. **`<body>`**, HTML sections then inline `<script>` at the bottom
 
 ### CSS Design Token System
 
@@ -67,10 +67,10 @@ Color palette: `--ink` (dark brown), `--paper` (cream), `--sepia` (gold), `--rul
 
 ### Chatbot Architecture
 
-- No API key — pure keyword matching against a pre-crafted knowledge base
+- No API key, pure keyword matching against a pre-crafted knowledge base
 - 17 KB entries: `{ keys: [...keywords], ans: "..." }`
 - Opens with a welcome flow (`showWelcome()`) offering 6 hire-type buttons (0-to-1, retention, enterprise, execution, technical depth, AI/LLM)
-- `hireAnswers` is stored as a JS object (not Python dict) — quote escaping is handled via DOM manipulation, not innerHTML, to avoid bugs
+- `hireAnswers` is stored as a JS object (not Python dict), and quote escaping is handled via DOM manipulation, not innerHTML, to avoid bugs
 - Quick chips always visible above the input
 
 ## Content Accuracy
@@ -93,5 +93,5 @@ All metrics are sourced from real data. Never alter these numbers without Heni's
 - No em dashes anywhere in copy
 - Voice: the book edition (root `index.html`) is written in first person ("I built..."). The newspaper edition (`newspaper/index.html`) stays in third person ("Heni Bhungalia shipped...", "She led...") to fit the reporter-style vibe. Testimonials and the chatbot (Heni's assistant) are third person in both
 - Do not display a work authorization or "No Sponsorship Required" line anywhere (removed at Heni's request; the site frames her as available for consulting). Never mention H4 EAD
-- Unirac Solar framing: Heni is leveraging existing product data and aligning stakeholders — she is NOT doing user research with field installers
+- Unirac Solar framing: Heni is leveraging existing product data and aligning stakeholders. She is NOT doing user research with field installers
 - Responsive: single-column stacking on mobile via `@media (max-width: 700px)`
