@@ -625,6 +625,75 @@ html, body {
   color: #fff;
 }
 
+/* ── CASE STUDY MODAL ── */
+button.card-link { font-family: inherit; cursor: pointer; }
+.card.has-case { cursor: pointer; }
+.case-overlay {
+  position: fixed; inset: 0;
+  background: rgba(20,20,20,0.55);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  z-index: 9000;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+}
+.case-overlay.open { opacity: 1; pointer-events: all; }
+.case-modal {
+  position: relative;
+  background: var(--page);
+  border-top: 3px solid var(--gold);
+  width: 100%; max-width: 640px; max-height: 88vh;
+  overflow-y: auto;
+  padding: 32px 36px 28px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+  transform: translateY(10px);
+  transition: transform 0.2s;
+}
+.case-overlay.open .case-modal { transform: translateY(0); }
+.case-close {
+  position: absolute; top: 12px; right: 14px;
+  background: none; border: none; cursor: pointer;
+  font-size: 1.1rem; line-height: 1; color: var(--muted); padding: 4px 6px;
+}
+.case-close:hover, .case-close:focus-visible { color: var(--ink); }
+.case-modal .page-heading { font-size: 1.6rem; padding-right: 24px; }
+.case-block { margin-bottom: 18px; }
+.case-block p {
+  font-size: 0.85rem; line-height: 1.7; color: var(--mid);
+}
+.case-block p strong { color: var(--ink); font-weight: 600; }
+.case-block p + p { margin-top: 10px; }
+body.case-open #chat-launcher,
+body.case-open #chat-panel { display: none !important; }
+.case-steps {
+  list-style: none; counter-reset: step;
+  margin: 10px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+}
+.case-steps li {
+  counter-increment: step;
+  border: 1px solid var(--line);
+  padding: 10px 10px 9px;
+  font-size: 0.72rem; line-height: 1.4; color: var(--ink);
+}
+.case-steps li::before {
+  content: counter(step, decimal-leading-zero);
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem; color: var(--gold); margin-bottom: 4px;
+}
+.case-stats { grid-template-columns: repeat(3, 1fr); margin: 10px 0 0; }
+.case-stats .stat:last-child { border-right: none; }
+.case-modal .pullquote { margin-top: 6px; }
+@media (max-width: 720px) {
+  .case-overlay { padding: 0; align-items: flex-end; }
+  .case-modal { max-height: 92vh; padding: 26px 20px 22px; }
+  .case-modal .page-heading { font-size: 1.35rem; }
+  .case-steps { grid-template-columns: 1fr 1fr; }
+  .case-stats .stat { padding: 12px 4px; }
+  .case-stats .stat-n { white-space: nowrap; font-size: 1.2rem; }
+}
+
 /* ── ACADEMIC ── */
 .edu-section { margin-bottom: 24px; }
 
@@ -1137,7 +1206,7 @@ html, body {
           <div class="divider"></div>
 
           <div class="cards">
-            <div class="card">
+            <div class="card has-case" data-case="case-dreamcrm">
               <div class="card-num">01</div>
               <div class="card-body">
                 <div class="card-title">DreamCRM: AI-Powered CRM, Built From Zero</div>
@@ -1147,6 +1216,9 @@ html, body {
                   <span class="tag">AI Features</span>
                   <span class="tag">Retention</span>
                   <span class="tag">CASA Tier 2</span>
+                </div>
+                <div class="card-links">
+                  <button type="button" class="card-link" data-case-open="case-dreamcrm" aria-haspopup="dialog">Read Case Study &rarr;</button>
                 </div>
               </div>
             </div>
@@ -1691,6 +1763,98 @@ html, body {
     tab.addEventListener('click', function() {
       navigate(tab.getAttribute('data-target'));
     });
+  });
+})();
+</script>
+
+<!-- ── CASE STUDY: DREAMCRM ── -->
+<div class="case-overlay" id="case-dreamcrm" aria-hidden="true">
+  <div class="case-modal" role="dialog" aria-modal="true" aria-labelledby="case-dreamcrm-title" tabindex="-1">
+    <button type="button" class="case-close" aria-label="Close case study">&#10005;</button>
+    <div class="page-head">
+      <div class="page-heading" id="case-dreamcrm-title">DreamCRM: Gmail-native AI CRM for solo business owners</div>
+      <div class="page-sub">Case Study &middot; AI20 Labs &middot; 2025&ndash;2026</div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="case-block">
+      <div class="section-label">The Problem</div>
+      <p>People signed up and then disappeared. Most dropped off during onboarding, and the ones who made it through landed on an empty dashboard and never came back.</p>
+    </div>
+
+    <div class="case-block">
+      <div class="section-label">What I Did</div>
+      <p>I reviewed about 30 session recordings and interviewed about 18 users. Two groups stood out. One got lost in a setup flow with several competing buttons and a required assistant-creation step, so they never reached the dashboard. The other reached the dashboard, found it empty, and skipped the long getting-started text.</p>
+      <p>I compared two onboarding approaches with the founders and engineers, and we chose a single screen showing four steps and what comes next. That way the dashboard already has something in it when people arrive.</p>
+      <ol class="case-steps">
+        <li>Sign up</li>
+        <li>Create your assistant</li>
+        <li>Connect Gmail or CC the assistant</li>
+        <li>Send your first email</li>
+      </ol>
+    </div>
+
+    <div class="case-block">
+      <div class="section-label">What We Tracked</div>
+      <p>Sign-ups, people who actually used the assistant (CC&rsquo;d it, sent an email, or turned on Gmail sync), and people who came back to act on the next suggested item.</p>
+    </div>
+
+    <div class="case-block">
+      <div class="section-label">Results</div>
+      <p>Onboarding completion went from 17% to 50%. Month-one retention reached 57 to 60%, against a typical 20 to 30% for B2B CRMs.</p>
+      <div class="stats case-stats">
+        <div class="stat"><span class="stat-n">17&rarr;50%</span><span class="stat-l">Onboarding Completion</span></div>
+        <div class="stat"><span class="stat-n">57&ndash;60%</span><span class="stat-l">Month-One Retention</span></div>
+        <div class="stat"><span class="stat-n">20&ndash;30%</span><span class="stat-l">Typical B2B CRM</span></div>
+      </div>
+    </div>
+
+    <div class="case-block" style="margin-bottom:0;">
+      <div class="section-label">What This Means for Your Product</div>
+      <blockquote class="pullquote">If people sign up and then go quiet, the fix is often in the first few minutes, not in new features.</blockquote>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var lastFocus = null;
+  function openCase(id) {
+    var ov = document.getElementById(id);
+    if (!ov) return;
+    lastFocus = document.activeElement;
+    ov.classList.add('open');
+    ov.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('case-open');
+    var m = ov.querySelector('.case-modal');
+    m.scrollTop = 0;
+    m.focus();
+  }
+  function closeCase(ov) {
+    ov.classList.remove('open');
+    ov.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    document.body.classList.remove('case-open');
+    if (lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll('[data-case-open]').forEach(function (b) {
+    b.addEventListener('click', function (e) { e.stopPropagation(); openCase(b.getAttribute('data-case-open')); });
+  });
+  document.querySelectorAll('.card.has-case').forEach(function (c) {
+    c.addEventListener('click', function (e) {
+      if (e.target.closest('a, button')) return;
+      openCase(c.getAttribute('data-case'));
+    });
+  });
+  document.querySelectorAll('.case-overlay').forEach(function (ov) {
+    ov.addEventListener('click', function (e) { if (e.target === ov) closeCase(ov); });
+    ov.querySelector('.case-close').addEventListener('click', function () { closeCase(ov); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    var ov = document.querySelector('.case-overlay.open');
+    if (ov) closeCase(ov);
   });
 })();
 </script>
